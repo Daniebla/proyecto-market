@@ -1,0 +1,82 @@
+.tablePeliculasVista{
+    background-color: red;
+    border: 1px black solid;
+    border-collapse: collapse;
+    width: 80%;
+    margin: 45px;
+}   
+.tablePeliculasVista tr:nth-child(odd) {background-color: grey;}
+.celdasPeliculasVistas{
+    border: 1px black solid;
+    padding: 8px;
+    border-bottom: white 1px solid;
+    text-align: center;
+}
+
+th.celdasPeliculasVistas:nth-child(1){
+    width: 10%;
+}
+th.celdasPeliculasVistas:nth-child(2){
+    width: 20%;
+}
+th.celdasPeliculasVistas:nth-child(3){
+    width: 10%;
+}
+th.celdasPeliculasVistas:nth-child(4){
+    width: 10%;
+}
+th.celdasPeliculasVistas:nth-child(5){
+    width: 30%;
+}
+th.celdasPeliculasVistas:nth-child(6){
+    width: 20%;
+}
+
+th.celdasPeliculasVistas:nth-child(1n){
+    background-color: aqua;
+}
+
+.poster{
+    width: 70%;
+}
+.inputAddMovie{
+    background-color: aliceblue;
+    border: none;
+    font-size: large;
+}
+
+
+
+/* Formulario para agregar pelicula */
+
+.formAgregarPelicula{
+width: 80%;
+margin-left: auto;
+margin-right: auto;
+background-color: bisque;
+display: flex;
+flex-direction: column;
+padding: 20px;
+
+}
+.fieldset{
+    display: flex;
+    /* justify-content: center; */
+    padding-bottom: 10px;
+}
+.formLabel{
+    background-color: aquamarine;
+}
+
+.formInputText{
+    width: 70%;
+    padding-left: 0px;
+    border: none;
+    border-bottom: 1px solid rgb(41, 158, 129);
+}
+
+.formInputSubmit{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}

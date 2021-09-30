@@ -1,0 +1,46 @@
+.bodySelect{
+    margin-bottom: 60px;
+    background-color: aqua;
+  }
+  
+  .Select__box__title{
+    display: block;
+    width: 100vw;
+    background-color: #a89f9fd0;
+    font-size: 20px;
+    margin: 0;
+    margin-bottom: 5px;
+    text-align: center;  
+  }
+  
+  .formSelect{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .Select__box{
+    display: flex;
+    justify-content: space-between;
+    width: 95VW;
+    margin-bottom: 10px;
+  }
+  
+  .Select__box__item{
+    width: 45vw;
+    margin-right: 50px;
+    margin: 0;
+  }
+  
+  .Select__boxSubmit{
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .cajaEstadado{
+    width: 50vw;
+    min-height: 30px;
+    background: #45be2d;
+  }
