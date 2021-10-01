@@ -1,0 +1,23 @@
+extends ../../templates/template
+block head 
+    link(rel="stylesheet" href="static/css/styles.css")
+    link(rel="stylesheet" href="static/css/form1.css")
+    title Subir Archivo
+
+block main 
+    section.bodySelect 
+            P.Select__box__title subida       
+            form.formSelect(action="#" id="formArchivo" enctype="multipart/form-data")
+                .Select__box
+                    label(for="idComponente") Componente 
+                    select#Componente.Select__box__item(name="componente")
+                .Select__box
+                    label(for="idUso") Uso 
+                    select#Uso.Select__box__item(name="componente")
+                .Select__box
+                    input#fileArchivo(type="file" name="upload" required multiple)
+                .Select__boxSubmit
+                    input(type="submit" value="Subir Archivo")
+            div.cajaEstadado
+block script 
+    script(src="static/js/subirLugarEspecífico.js" )        

@@ -1,0 +1,35 @@
+include ../config/config
+<!DOCTYPE html>
+html(lang="en")
+    head#head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous")
+        block head
+    body 
+        header#header.header 
+            a(href="/").topbar__logo
+                i.fab.fa-google
+            #topbar.topbar
+                form.buscador-box
+                    .buscador-box_input
+                        a(href='/me').topbar__iconCollection__link 
+                            input(type="text" name="name" placeholder="name").buscador-box_input_form#form__buscador_input
+                    .buscador-box_icono
+                        input(type="submit" value="Send").buscador-box_icono_form#form__icono_submit
+                        i.fas.fa-search.buscador-box_icono_img#form__icono_submit
+                .topbar__iconCollection
+                    .topbar__iconCollection__icon(data-type="historial")
+                        i.fas.fa-history
+                    a(href='/subir').topbar__iconCollection__link 
+                        .topbar__iconCollection__icon(data-type="favoritos") 
+                            i.fas.fa-heart
+                    a(href='/personal').topbar__iconCollection__link 
+                        .topbar__iconCollection__icon(data-type="usuario")
+                            i.fas.fa-user
+                    .topbar__iconCollection__icon(data-type="notificaciones")
+                        i.far.fa-bell
+        main.main
+            block main
+        block script

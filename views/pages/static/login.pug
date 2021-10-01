@@ -1,0 +1,38 @@
+extends ../../templates/template
+block head 
+    link(rel="stylesheet" href="static/css/styles.css")
+    link(rel="stylesheet" href="static/css/subirDirectorio.css")
+    
+    title PaginaActual
+
+block main 
+    //- form#form-login
+    //-     label id
+    //-     input#form_id(type="text", name="", value="1")
+    //-     input(type="submit", value="login", acceskey="v")
+    section.bodySelect 
+            P.Select__box__title Login       
+            form#form-login.formSelect(action="#")
+                .Select__box
+                    label(for="idComponente") Correo 
+                    //- select#Componente.Select__box__item(name="componente")
+                    input#form_correo(type="text" value="angeldanielnieblalopez@gmail.com")                    
+                .Select__box
+                    label(for="idUso") Contraseña 
+                    //- select#Uso.Select__box__item(name="componente")
+                    input#form_contra(type="text" value="contra123")                    
+                .Select__boxSubmit
+                    input(type="submit" value = "Log in")
+                    //- input(type='button' value = 'Recovery')
+                    div
+                        a.linkBase(href="/recovery")                
+                            i olvidé mi contraseña
+    section.bodySelect 
+            P.Select__box__title verify       
+            form#form-verify
+                .Select__boxSubmit
+                    input(type="submit", value="verify")
+
+
+block script 
+    script(src="static/js/formularioLogin.js")

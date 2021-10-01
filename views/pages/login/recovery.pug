@@ -1,0 +1,19 @@
+extends ../../templates/template
+block head 
+    link(rel="stylesheet" href="static/css/styles.css")
+    link(rel="stylesheet" href="static/css/form1.css")
+    title SenEmail
+    
+block main
+    section.bodySelect 
+                P.Select__box__title Recuperar       
+                form#form-verify.formSelect(action="#")
+                    .Select__box
+                        label(for="idComponente") Correo 
+                        //- select#Componente.Select__box__item(name="componente")
+                        input#form_correo(type="text" value="angeldanielnieblalopez@gmail.com")                    
+                    .Select__boxSubmit
+                        input(type="submit" value = "Recuperar")
+block script 
+    script(src="static/js/recovery.js")
+                

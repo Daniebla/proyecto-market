@@ -1,0 +1,12 @@
+extends ../../templates/template
+block head 
+    link(rel="stylesheet" href="static/css/styles.css")
+    link(rel="stylesheet" href="static/css/burger.css")
+    title Personal
+
+block main
+    .vista#vista
+        include ../../includes/lista
+block script 
+    .scripts#scripts
+        script(src="static/js/burger.js")     

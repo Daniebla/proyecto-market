@@ -1,0 +1,64 @@
+extends ../../templates/template
+block head 
+    link(rel="stylesheet" href="static/css/styles.css")
+    link(rel="stylesheet" href="static/css/index.css")
+    title Index
+
+block main 
+    section.atributes_box_index.carrusel#box_index_carrusel
+        p.atributes_box_index_titulo#sub_titulo_id ven pa ca
+        .carrusel_images#carrusel_images 
+        .carrusel_nav#carrusel_nav
+    section.atributes_box_index.sugerencia_articulo_seccion
+        p.atributes_box_index_titulo ven pa ca 2
+        .sugerencia_articulo 
+            .sugerencia_articulo_icono
+                img(src="assets/img/about.jpg", alt="", srcset="").sugerencia_articulo_icono-imagen-horizontal
+                .caracteristicasVenta
+                    span.caracteristicasVenta-Precio 12312312
+                    .caracteristicasVenta-Beneficios                                                
+                        span Ena
+                        span Mes
+                        span Ret           
+                        span Ret           
+                        span Ret           
+                        span Ret           
+                        span Ret           
+                p.sugerencia_articulo_icono_parrafo tarjeta grafica gtx 1060 6gb nvidia                
+            .sugerencia_articulo_icono
+                img(src="assets/img/contact.jpg", alt="", srcset="").sugerencia_articulo_icono-imagen-horizontal
+                .caracteristicasVenta
+                    span.caracteristicasVenta-Precio 12312312
+                    .caracteristicasVenta-Beneficios                                                
+                        span Ena
+                        span Mes
+                        span Ret           
+                p.sugerencia_articulo_icono_parrafo  tarjeta grafica gtx 1060 6gb nvidia
+    section.atributes_box_index.categoria_descubrimiento#categoriasPopulares
+        p.atributes_box_index_titulo ven pa ca3
+            .categorias_descubrimiento_icono
+                .div1.div 
+                    i.fab.fa-google
+                .div4.div
+                    i.fab.fa-google
+                .div1.div 
+                    i.fab.fa-google
+                .div2.div
+                    i.fab.fa-google
+                .div1.div
+                    i.fab.fa-google
+                .div4.div 
+                    i.fab.fa-google
+                .div3.div 
+                    i.fab.fa-google
+                .div2.div 
+                    i.fab.fa-google
+                .div3.div 
+                    i.fab.fa-google
+                .div2.div 
+                    i.fab.fa-google
+                .div5.categorias_descubrimiento_boton descubrir
+block script 
+    script(src="static/js/verifyIsLogin.js") 
+    script(src="static/js/carrusel.js")     
+        //- .categorias_descubrimiento#categorias_descubrimiento
