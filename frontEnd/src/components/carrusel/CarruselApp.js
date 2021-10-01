@@ -1,6 +1,7 @@
 // styles
 import "./Carrusel.css"
 
+// Librerías
 import React, { useState, useEffect } from 'react';
 import { Carrusel } from "./Carrusel"
 
@@ -18,9 +19,7 @@ export const CarruselApp = (props)=>{
     // const [carrusel_active, setCarrusel_active] = useState(props.carrusel_active)
     let cont = props.cont
     let carrusel_active = props.carrusel_active
-    const [images] = useState(["/assets/img/about.jpg"
-    ,"/assets/img/about2.jpg","/assets/img/about.jpg","/assets/img/about2.jpg"
-    ])
+    const [images] = useState(["/assets/img/about.jpg","/assets/img/about2.jpg","/assets/img/about.jpg","/assets/img/about2.jpg"])
     
     // tamanio
     let tamanio
@@ -56,19 +55,15 @@ export const CarruselApp = (props)=>{
             infoImagen.ruta = images[indicador]
             infoImagen.class = "carrusel_images-imagen"
             infoImagen.id= `carrusel_imagen-${indicador}`
-            // 100/4= ?
-            
-            // 25 * 0.04 = ?
-            // 25 - ? = ?
-            
             infoImagen.style=`${(100/images.length)}%`;
             
             // NAV
             infoMarcador.id = `carrusel_marcador-${indicador}`
             infoMarcador.class = "carrusel_nav-marcador"
-            if(indicador === cont.toString() ){
-            // console.log(indicador);
-            infoMarcador.class= "carrusel_nav-marcador-actual carrusel_nav-marcador"}
+            if(indicador === cont.toString()){
+                infoMarcador.class= "carrusel_nav-marcador-actual carrusel_nav-marcador"
+            }
+            
             // APPEND info
             infoMolde.images.push(infoImagen)
             infoMolde.nav.push(infoMarcador)

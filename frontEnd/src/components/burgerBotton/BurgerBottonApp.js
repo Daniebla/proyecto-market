@@ -1,28 +1,26 @@
-// estilos
+// Import CSS
 import './burgerBotton.css'
 
-// paquetes
+// Librerías
 import React, { useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 
 export const BurgerBottonApp = ({nameState,action, clases})=>{
-
+    // Inicialización
     const refBurgerBotton = useRef()
     const burger_Botton = useSelector((state)=>state[nameState])
-
-
     const dispatch = useDispatch()
 
     const handleClickBotton = (active)=>{
         
         if(active){
-            for(let item of refBurgerBotton.current.children){
-                item.classList.add('burgerBotton-bar-active')
+            for(let bar of refBurgerBotton.current.children){
+                bar.classList.add('burgerBotton-bar-active')
             }   
         }else{
-            for(let item of refBurgerBotton.current.children){
-                item.classList.remove('burgerBotton-bar-active')
+            for(let bar of refBurgerBotton.current.children){
+                bar.classList.remove('burgerBotton-bar-active')
             }
         }
     }
@@ -39,7 +37,6 @@ export const BurgerBottonApp = ({nameState,action, clases})=>{
     useEffect(()=>{
         handleClickBotton(burger_Botton.active)
 
-
     },[burger_Botton.active])
 
 
@@ -48,7 +45,10 @@ export const BurgerBottonApp = ({nameState,action, clases})=>{
             <div className="burgerBotton-bar" />
             <div className="burgerBotton-bar" />
             <div className="burgerBotton-bar" />
-
         </div>
     )
+}
+
+BurgerBottonApp.defaultProps = { 
+    clases:""
 }

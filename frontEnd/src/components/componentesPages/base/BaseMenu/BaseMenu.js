@@ -60,12 +60,8 @@ const BaseMenu = ()=>{
                     <FontAwesomeIcon icon={faBell} />
                 </div>
                 <BurgerBottonApp nameState={"burger_botton_base_menu"} action={toggle_button_base_menu_action} clases={"topbar__iconCollection__link"}/>
-
-
-
             </div>
         </div>
-        <MenuPrincipal nameState={"burger_botton_base_menu"} lista={baseMenuConfig.lista} action={toggle_button_base_menu_action}/>
 
     </>
     )

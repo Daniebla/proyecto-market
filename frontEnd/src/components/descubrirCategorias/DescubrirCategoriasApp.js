@@ -1,14 +1,16 @@
+// Import CSS
+import "./descrubrirCategorias.css"
+
+// Librerías
 import React, {  useEffect, useRef, useState } from 'react';
 
+// Componentes
 import { Contenido } from '../contenido/Contenido';
 import { CategoriaIcon } from './CategoriaIcon';
-import "./descrubrirCategorias.css"
+
 export const DescubrirCategoriasApp = ({title})=>{
-
+    // Inicialización
     let refDescubriCategoria = useRef()
-
-
-    // const [WidthBox,setWidthBox] = useState(0)
     const [Categorias, setCategorias] = useState(null)
 
     
@@ -37,9 +39,7 @@ export const DescubrirCategoriasApp = ({title})=>{
                         Categorias.map((value,index)=>(
                             <CategoriaIcon value={value} key={index}/>
                         ))
-                    ):(
-                        <></>
-                    )
+                    ):(<></>)
                 }
             </div>
             <div className="descubrirCategoriaMas">

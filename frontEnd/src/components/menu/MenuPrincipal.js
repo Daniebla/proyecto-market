@@ -1,8 +1,10 @@
+// Import CSS
 import './menuPrincipal.css'
 
+// Librerías
 import React, {  useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 
@@ -10,7 +12,6 @@ import { Link, useRouteMatch } from "react-router-dom";
 export const MenuPrincipal = ({ lista, nameState, action })=>{
 
     let refMenu = useRef()
-    let {path} = useRouteMatch()
     const stateBurgerBottonBaseMenu = useSelector((state)=>state[nameState])
     const dispatch = useDispatch()
 
@@ -19,11 +20,11 @@ export const MenuPrincipal = ({ lista, nameState, action })=>{
     useEffect(()=>{ 
 
 
-        // click
+        // click para cerrar solo en el boton cerrar, en la parte de abajo blanco parece que también hace que se cierre
         refMenu.current.addEventListener('click',(e)=>{
             
             if(!e.target.classList.contains('main-menu-header') && !e.target.classList.contains('main-menu-title'))
-                    dispatch(action())
+                dispatch(action())
         
         })
         
@@ -36,7 +37,7 @@ export const MenuPrincipal = ({ lista, nameState, action })=>{
     },[])
     
 
-    // cambio estado boton
+    // en caso de cambio estado boton se actualiza el menu
     useEffect(()=>{
 
         if(stateBurgerBottonBaseMenu.active){

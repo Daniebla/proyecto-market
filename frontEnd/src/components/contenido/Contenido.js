@@ -1,5 +1,9 @@
-import React from 'react';
+// Import CSS
 import './Contenido.css'
+
+// Librerías
+import React from 'react';
+
 
 export const Contenido = ({children, title, id, clase})=>{
 

@@ -1,5 +1,4 @@
-// // Import CSS
-// import '../base/baseGrid.css'
+// Import CSS
 
 // Librerías
 import { useEffect } from 'react';
@@ -10,7 +9,6 @@ import {  } from './menuPersonal/PersonalMenu';
 // ta raro esto
 
 // Componenentes
-import { SubMenuApp } from '../../subMenu/SubMenuApp';
 
 // Personal Routes
 import { PersonalRoutes} from './PersonalRoutes';
@@ -19,7 +17,6 @@ import { PersonalRoutes} from './PersonalRoutes';
 import { change_class_element_body_action, change_class_element_main_action, change_class_element_header_action } from '../../../baseApp1/redux/actions/bodyClassElementAction'
 
 // Config
-import personalSubMenuConfig from '../../../config/personalSubmenuConfig.json'
 
 export const Personal = ()=>{
     
@@ -34,7 +31,6 @@ export const Personal = ()=>{
 
     return(
         <>
-            {/* <SubMenuApp lista={personalSubMenuConfig.lista} /> */}
             <PersonalRoutes />
         </>
     )
