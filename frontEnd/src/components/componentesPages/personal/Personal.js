@@ -10,11 +10,11 @@ import {  } from './menuPersonal/PersonalMenu';
 
 // Componenentes
 
-// Personal Routes
 import { PersonalRoutes} from './PersonalRoutes';
 
 // Redux actions
 import { change_class_element_body_action, change_class_element_main_action, change_class_element_header_action } from '../../../baseApp1/redux/actions/bodyClassElementAction'
+import { StaticMenuPersonalApp } from './staticMenuPersonal/StaticMenuPersonalApp';
 
 // Config
 
@@ -31,6 +31,7 @@ export const Personal = ()=>{
 
     return(
         <>
+            <StaticMenuPersonalApp />
             <PersonalRoutes />
         </>
     )

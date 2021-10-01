@@ -9,6 +9,9 @@ export const PersonalRoutes = ()=>{
         <Switch>
             <Route exact path={path}>
                 <>
+                {
+                    console.log(111111)
+                }
                     <h1>casa</h1>
                     <h1>casa</h1>
                     <h1>casa</h1>
