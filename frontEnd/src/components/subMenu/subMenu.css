@@ -1,0 +1,30 @@
+.SubMenu{
+    width: 100%;
+    height: 2em;
+
+
+    background-color: black;
+
+    display: grid;
+    grid-template-columns: 9% 90%;
+    grid-template-rows: 100%;
+
+}
+
+.SubMenu_bar{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.SubMenu-item{
+    padding-left: 10px;
+    color: red;
+}
+
+.SubMenu-item-hidden{
+    display: none;
+}

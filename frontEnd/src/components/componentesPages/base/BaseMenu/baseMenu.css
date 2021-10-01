@@ -1,0 +1,20 @@
+@media screen and (max-width: 414px) { .topbar { grid-column: 2/3; grid-row: 1/2; display: grid; grid-template-columns: 65% 35%; grid-template-rows: 100%; } }
+
+@media screen and (max-width: 414px) { .topbar__logo { grid-column: 1/2; grid-row: 1/2; font-size: 7vw; display: flex; align-items: center; justify-content: center; background-repeat: no-repeat; text-decoration: none; }
+  .topbar__logo  { color: wheat; } }
+
+@media screen and (max-width: 414px) { .buscador-box { grid-column: 1/2; grid-row: 1/2; display: grid; grid-template-columns: 86% 14%; grid-template-rows: 100%; }
+  .buscador-box_input { grid-column: 1/2; grid-row: 1/2; display: flex; align-items: center; }
+  .buscador-box_input_form { width: 100%; }
+  .buscador-box_icono { grid-column: 2/3; grid-row: 1/2; display: flex; align-items: center; justify-content: center; }
+  .buscador-box_icono_form { display: none; }
+  .buscador-box_icono_img { color: white; padding-right: 0px; font-size: 5.5vw; } }
+
+@media screen and (max-width: 414px) { .topbar__iconCollection { display: flex; justify-content: flex-end; align-items: center; grid-column: 2/3; grid-row: 1/2; padding-right: 1.5vw; }
+  .topbar__iconCollection__icon { font-size: 5.5vw; padding-right: 7px; display: flex; align-items: center; color: white; } }
+
+
+/* TO DO sin responsive falta */
+.topbar__iconCollection__link{
+  color: transparent;
+}

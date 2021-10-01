@@ -1,0 +1,9 @@
+{
+    "lista":[
+         {"name":"home","ruta":""}
+        ,{"name":"personal","ruta":"/personal"}
+
+        
+    ]
+    
+}

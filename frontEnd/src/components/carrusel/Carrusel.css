@@ -1,0 +1,28 @@
+.carrusel { 
+    overflow: hidden; 
+}
+.carrusell {  
+    /* padding: 10px; overflow: hidden;  */
+}
+
+.carrusel_images {  
+    padding:0; 
+    margin: 0 ;
+    background-color: white;
+    line-height: 0;
+    position: relative;
+    transition: all 0.5s; }
+
+.carrusel_images-imagen { -o-object-fit: fill; object-fit: fill; height: 200px; 
+    padding: 0 5px 0;
+}
+
+.carrusel_nav { height: 20px; display: flex; justify-content: space-around; align-items: center; margin: auto; background-color: rgba(127, 255, 212, 0.733); }
+
+.carrusel_nav-marcador { width: 10px; border-radius: 50%; height: 10px; background-color: ivory; }
+
+.carrusel_nav-marcador-actual { background-color: red; }
+
+.carrusel_nav-marcador:hover { background-color: salmon; }
+
+

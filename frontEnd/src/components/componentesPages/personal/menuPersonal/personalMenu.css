@@ -1,0 +1,67 @@
+.vista{
+    width: 100%;
+    height: 100%;}
+.main-menu__float__active{
+    color: red;
+}
+
+.main-menu__float{
+    width: 20px;
+    height: 20px;
+    background-color: rgb(196, 214, 32);
+    position: fixed;
+    z-index: 10;
+    top: 12vh;
+    left: 7px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.main-menu{
+    background-color: rgba(128, 128, 128);
+    padding: 0;
+    margin: 0;
+    
+
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    right: 100%;
+    transition: 0.7s;
+    
+    
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.main-menu__active{
+    right: 0px;
+    background-color: aliceblue;
+}
+
+
+
+
+.main-menuLi{
+
+    margin-left: none;
+    padding-left: none;
+    text-decoration: none;
+    list-style: none;
+
+    
+}
+.main-menu__label{
+    border-top: rgb(27, 29, 23) 4px solid;
+    
+    padding: 20px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+
+    background-color: rgb(116, 114, 112);
+}

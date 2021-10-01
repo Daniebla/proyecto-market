@@ -1,0 +1,41 @@
+.burgerBotton{
+    width: 100%;
+    height: 100%;
+    /* padding: 4px 0; */
+    background-color: aliceblue;
+
+    display: flex;
+    /* justify-content: space-around; */
+    align-items: center;
+    flex-flow: column;
+    /* position: ; */
+    /* overflow: hidden; */
+}
+
+.burgerBotton-bar{
+    width: 70%;
+    height: 2px;
+
+    /* background-color: black; */
+    background-color: aqua;
+}
+
+.burgerBotton-bar:nth-child(1){
+    /* background-color: aqua; */
+    position: relative;
+    top: 22%;
+}
+.burgerBotton-bar:nth-child(2){
+    position: relative;
+    top: 42%;
+}
+.burgerBotton-bar:nth-child(3){
+    /* background-color: aqua; */
+    position: relative;
+    top: 62%;
+}
+
+
+.burgerBotton-bar-active{
+    background-color: red;
+}

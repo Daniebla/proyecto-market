@@ -1,0 +1,30 @@
+.Card{
+    width: 75vw;
+    height: 50vh;
+    max-width: 400px;
+
+    margin: 0 auto;
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    &_image{
+        margin-bottom: 10px;
+    }
+    
+    &_form{
+        background-color: aliceblue;
+        margin-bottom: 10px;
+        &_input{
+            border-radius: 10px;
+            border-color: black;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        &_submit{
+            background-color: aquamarine;
+        }
+
+    }
+}
