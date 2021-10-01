@@ -33,7 +33,7 @@ const BaseMenu = ()=>{
     return(
     <>
         <Link to="/" className="topbar__logo"> 
-        <FontAwesomeIcon icon={faGoogle} />
+            <FontAwesomeIcon icon={faGoogle} />
          </Link>
         <div className="topbar">
             <form className="buscador-box">

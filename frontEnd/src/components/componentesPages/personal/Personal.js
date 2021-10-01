@@ -26,15 +26,15 @@ export const Personal = ()=>{
     const dispatch = useDispatch()
 
     useEffect(()=>{
-        dispatch(change_class_element_body_action('body'))
-        dispatch(change_class_element_header_action('header'))
-        dispatch(change_class_element_main_action('main'))
+        dispatch(change_class_element_body_action('body_TitleMenu'))
+        dispatch(change_class_element_header_action('header_TitleMenu'))
+        dispatch(change_class_element_main_action('main_TitleMenu'))
         
     },[])
 
     return(
         <>
-            <SubMenuApp lista={personalSubMenuConfig.lista} />
+            {/* <SubMenuApp lista={personalSubMenuConfig.lista} /> */}
             <PersonalRoutes />
         </>
     )
