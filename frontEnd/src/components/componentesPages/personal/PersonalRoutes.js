@@ -10,7 +10,7 @@ export const PersonalRoutes = ()=>{
             <Route exact path={path}>
                 <>
                 {
-                    console.log(111111)
+                    // console.log(111111)
                 }
                     <h1>casa</h1>
                     <h1>casa</h1>
@@ -21,7 +21,7 @@ export const PersonalRoutes = ()=>{
                     <h1>casa</h1>
                 </>
             </Route>
-            <Route path={`${path}/cuenta`}>
+            <Route path={`${path}/preguntas`}>
                 {/* <h1>dios</h1> */}
                 {/* <SubMenuApp/> */}
                 {/* <h1>personal/cuenta</h1> */}

@@ -1,4 +1,5 @@
 // Import CSS
+import './personal.css'
 
 // Librerías
 import { useEffect } from 'react';
@@ -17,6 +18,7 @@ import { change_class_element_body_action, change_class_element_main_action, cha
 import { StaticMenuPersonalApp } from './staticMenuPersonal/StaticMenuPersonalApp';
 
 // Config
+import config from'../../../config/personalStaticMenuConfig.json'
 
 export const Personal = ()=>{
     
@@ -31,8 +33,9 @@ export const Personal = ()=>{
 
     return(
         <>
-            <StaticMenuPersonalApp />
-            <PersonalRoutes />
+            {true && <StaticMenuPersonalApp config={config.lista} />}
+            {/* <PersonalRoutes /> */}
+        {/* </div>    */}
         </>
     )
 }

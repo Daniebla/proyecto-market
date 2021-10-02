@@ -1,18 +1,18 @@
-// CSS
-import './staticMenuPersonalRow.scss'
+import { Link } from "react-router-dom";
 
-export const StaticMenuPersonalRow = ( ) =>{
+export const StaticMenuPersonalRow = ( {title,ruta,srcImage } ) =>{
 
     const clickeame = ( ) =>{
         console.log("me esta clickeando");
     }
+    
     return(
-            <button className = "staticMenuPersonalRow" onClick={clickeame}>
-                <div className="staticMenuPersonalRow_icon">
-                </div>
-                <div className="staticMenuPersonalRow_text">
-                    jfkslajlkfjdsljlkjds lksdjlfjlks
-                </div>
-            </button>
+             <Link className = "staticMenuPersonalRow" onClick={clickeame} to={ruta}>
+                     <img className="staticMenuPersonalRow_icon" src={process.env.PUBLIC_URL + srcImage} alt={title}/>
+
+                     <div className="staticMenuPersonalRow_text">
+                         {title}
+                     </div>
+             </Link>
     )
 }

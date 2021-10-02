@@ -1,0 +1,9 @@
+{
+    "lista":[
+         {"title":"Mercado Crédito","ruta":"/personal/credito", "srcImage":"/logo192.png", "separete":true}
+        ,{"title":"Preguntas","ruta":"/personal/preguntas", "srcImage":"/logo192.png", "separete":false, "subTitle":true, "subTitle_text": "Compras"}
+        ,{"title":"Mis compras","ruta":"/personal/compras", "srcImage":"/logo192.png", "separete":true, "subTitle":false, "subTitle_text": ""}
+        ,{"title":"Resumen","ruta":"/personal/resumen", "srcImage":"/logo192.png", "separete":false, "subTitle":true, "subTitle_text": "Ventas"}
+        ,{"title":"Novedades","ruta":"/personal/novedades", "srcImage":"/logo192.png", "separete":false, "subTitle":false, "subTitle_text": ""}
+    ]
+}

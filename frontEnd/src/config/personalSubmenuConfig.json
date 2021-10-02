@@ -1,9 +1,8 @@
 {
     "lista":[
          {"name":"index","ruta":"/personal"}
-        ,{"name":"cuenta","ruta":"/personal/cuenta"}
-
-        
+        ,{"name":"cuenta","ruta":"/personal/cuenta"}    
     ]
+
     
 }
