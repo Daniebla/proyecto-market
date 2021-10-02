@@ -1,9 +1,24 @@
 {
     "lista":[
-         {"title":"Mercado Crédito","ruta":"/personal/credito", "srcImage":"/logo192.png", "separete":true}
-        ,{"title":"Preguntas","ruta":"/personal/preguntas", "srcImage":"/logo192.png", "separete":false, "subTitle":true, "subTitle_text": "Compras"}
-        ,{"title":"Mis compras","ruta":"/personal/compras", "srcImage":"/logo192.png", "separete":true, "subTitle":false, "subTitle_text": ""}
-        ,{"title":"Resumen","ruta":"/personal/resumen", "srcImage":"/logo192.png", "separete":false, "subTitle":true, "subTitle_text": "Ventas"}
+         {"title":"Mercado Crédito","ruta":"/personal/credito", "srcImage":"/logo192.png", "separete":false}
+        ,{"title":"Preguntas","ruta":"/personal/preguntas", "srcImage":"/logo192.png", "separete":true, "subTitle":true, "subTitle_text": "Compras"}
+        ,{"title":"Mis compras","ruta":"/personal/compras", "srcImage":"/logo192.png", "separete":false, "subTitle":false, "subTitle_text": ""}
+        ,{"title":"Resumen","ruta":"/personal/resumen", "srcImage":"/logo192.png", "separete":true, "subTitle":true, "subTitle_text": "Ventas"}
         ,{"title":"Novedades","ruta":"/personal/novedades", "srcImage":"/logo192.png", "separete":false, "subTitle":false, "subTitle_text": ""}
+        ,{"title":"publicaciones","ruta":"/personal/publicaciones", "srcImage":"/logo192.png", "separete":false, "subTitle":false, "subTitle_text": ""}
+        ,{"title":"publicidad","ruta":"/personal/publicidad", "srcImage":"/logo192.png", "separete":false, "subTitle":false, "subTitle_text": ""}
+        ,{"title":"preguntas","ruta":"/personal/preguntas", "srcImage":"/logo192.png", "separete":false, "subTitle":false, "subTitle_text": ""}
+        ,{"title":"ventas","ruta":"/personal/ventas", "srcImage":"/logo192.png", "separete":false, "subTitle":false, "subTitle_text": ""}
+        ,{"title":"facturacion","ruta":"/personal/facturacion", "srcImage":"/logo192.png", "separete":true, "subTitle":true, "subTitle_text": "facturacion"}
+        ,{"title":"Reputación","ruta":"/personal/reputacion", "srcImage":"/logo192.png", "separete":false, "subTitle":false, "subTitle_text": ""}
+        ,{"title":"Mis datos","ruta":"/personal/misdatos", "srcImage":"/logo192.png", "separete":true, "subTitle":true, "subTitle_text": "configuracion"}
+        ,{"title":"Seguridad","ruta":"/personal/seguridad", "srcImage":"/logo192.png", "separete":false, "subTitle":false, "subTitle_text": ""}
+        ,{"title":"Privacidad","ruta":"/personal/privacidad", "srcImage":"/logo192.png", "separete":false, "subTitle":false, "subTitle_text": ""}
+        ,{"title":"Comunicaciones","ruta":"/personal/comunicaciones", "srcImage":"/logo192.png", "separete":false, "subTitle":false, "subTitle_text": ""}
+        ,{"title":"Ajustes","ruta":"/personal/ajustes", "srcImage":"/logo192.png", "separete":false, "subTitle":false, "subTitle_text": ""}
+        ,{"title":"Ayuda","ruta":"/personal/ayuda", "srcImage":"/logo192.png", "separete":false, "subTitle":false, "subTitle_text": ""}
+
+
+
     ]
 }

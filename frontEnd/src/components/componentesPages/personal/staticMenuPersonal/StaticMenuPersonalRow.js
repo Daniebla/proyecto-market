@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export const StaticMenuPersonalRow = ( {title,ruta,srcImage } ) =>{
@@ -6,6 +7,9 @@ export const StaticMenuPersonalRow = ( {title,ruta,srcImage } ) =>{
         console.log("me esta clickeando");
     }
     
+    useEffect(()=>{
+     console.log(title);   
+    })
     return(
              <Link className = "staticMenuPersonalRow" onClick={clickeame} to={ruta}>
                      <img className="staticMenuPersonalRow_icon" src={process.env.PUBLIC_URL + srcImage} alt={title}/>

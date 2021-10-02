@@ -17,7 +17,7 @@ const BaseRoutes = ({setRuta})=>{
     return(        
             <Switch>
                 <Route exact path="/" component={Index} />
-                <PublicRoute exact path="/login" component={Login} />
+                <PublicRoute exact path="/login" component={Login}/>
                 <PrivateRoute path="/personal" component={Personal}/>
                     
                     
