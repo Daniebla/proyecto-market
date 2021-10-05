@@ -1,15 +1,20 @@
-import {  Route, Switch, useRouteMatch} from "react-router-dom"
+import { Route, Switch, useRouteMatch} from "react-router-dom"
 import { CuentaApp } from "./cuenta/CuentaApp"
 import { PersonalIndex } from "./subPages/personalIndex/PersonalIndex"
-import { PersonalMisDatos } from "./subPages/personalMisDatos/PersonalMisDatos"
+import { PersonalMisDatosApp } from "./subPages/personalMisDatos/PersonalMisDatosApp"
 
-export const PersonalRoutes = ( {} )=>{
+export const PersonalRoutes = ( {setActiveMenu} )=>{
 
     let {path, url} = useRouteMatch()
     
     return(
         <Switch>
-            <Route exact path={path}  component={PersonalIndex}/>
+            <Route exact path={path}  
+            // component={PersonalIndex}/
+            >
+            <PersonalIndex setActiveMenu={setActiveMenu}/>
+
+            </Route>
 
             <Route path={`${path}/credito`}>
             <p>credito</p>
@@ -33,7 +38,7 @@ export const PersonalRoutes = ( {} )=>{
 
             <Route path={`${path}/misdatos`}>
                 {/* <p>my data</p> */}
-                <PersonalMisDatos />
+                <PersonalMisDatosApp />
             </Route>
 
 

@@ -1,0 +1,34 @@
+{
+    "data":[
+        {
+        "tipo": "normal",
+        "title":"Datos de cuenta",
+        "lista":[
+            {"rowTitle":"Usuario","name":"usuario"},
+            {"rowTitle":"E-mail","name":"eMail"}
+        ]
+        },{ "tipo":"normal",
+            "title":"Datos personales",
+            "lista":[
+                {"rowTitle":"Nombre y apellido","name":"nombreApellido"},
+                {"rowTitle":"Nombre elegido","name":"nombreElegido"},
+                {"rowTitle":"Documento", "name": "documento"},
+                {"rowTitle":"Teléfono", "name":"telefono"}
+            ]
+        },{ "tipo": "tarjeta",
+            "title":"Tarjetas",
+            "lista":[
+                {"terminacion":"","tipo":"","propietario":""}
+            ]
+        },{
+            "tipo":"direccion",
+            "title":"Direcciones",
+            "lista":[
+                {"calle":"Nombre y apellido","masInfo":"jsalkfjls djsalk fjlsd"},
+                {"calle":"Nombre y apellido","masInfo":"jsalkfjls djsalk fjlsd"}
+            ]
+        }
+    ]
+    
+    
+}
