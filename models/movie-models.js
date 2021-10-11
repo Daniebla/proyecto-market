@@ -8,22 +8,39 @@ let movieModel = () => {}
     movieModel.getUser = async (correo, contra)=>{
         // console.log("movie-models: "+correo +"  "+ contra)
         return new Promise((resolve, reject)=>{
-            movieConection.query('SELECT * FROM usuario WHERE correo = ? and contra = ?',[correo,contra],(err, user)=>{
+            movieConection.query('SELECT * FROM persona WHERE email = ? and PASSWORD = ?',[correo,contra],(err, user)=>{
                 if(err){
                     console.log("error obtenido: "+err)
                     reject(err)
                 }else{
-                    console.log("usuario obtenido: "+ util.inspect(user))
+                    // console.log("usuario obtenido: "+ util.inspect(user))
                     resolve(user)
                 }
             })
         })
         
     }
+
+// Personal
+    movieModel.personal_MisDatos_data = (correo, contra)=>{
+        return new Promise((resolve, reject)=>{
+            movieConection.query('SELECT usuario, email, fullName,nombreElegido,Documento, Telefono FROM persona WHERE email = ? and PASSWORD = ?',[correo,contra],(err, user)=>{
+                if(err){
+                    console.log("error obtenido: "+err)
+                    reject(err)
+                }else{
+                    // console.log("usuario obtenido: "+ util.inspect(user))
+                    resolve(user)
+                }
+            })
+        })
+    }
+
+
     movieModel.getUserByEmail = async (correo)=>{
         // console.log("movie-models: "+correo +"  "+ contra)
         return new Promise((resolve, reject)=>{
-            movieConection.query('SELECT correo,contra FROM usuario WHERE correo = ?',correo,(err, user)=>{
+            movieConection.query('SELECT correo,contra FROM usuario WHERE email = ?',correo,(err, user)=>{
                 if(err){
                     console.log("error obtenido: "+err)
                     reject(err)
@@ -37,7 +54,7 @@ let movieModel = () => {}
     }
     movieModel.setPassword = async (email,oldPassword, newPassword)=>{
         return new Promise((resolve, reject)=>{
-            movieConection.query('update usuario set contra = ? where correo = ? and contra = ?',[newPassword,email,oldPassword],(err, user)=>{
+            movieConection.query('update usuario set PASSWORD = ? where email = ? and PASSWORD = ?',[newPassword,email,oldPassword],(err, user)=>{
                 if(err){
                     console.log("error obtenido: "+err)
                     reject(err)
@@ -102,10 +119,7 @@ let movieModel = () => {}
         })
     }
 
-    // RowDataPacket { id: 1, name: 'carruselImagenes' },
-    // RowDataPacket { id: 2, name: 'basicos' },
-    // RowDataPacket { id: 3, name: 'usoComponente 3' },
-    // RowDataPacket { id: 4, name: 'uso de componente 2' }
+
     movieModel.getDirectorioUso1 = (componente_id)=>{
         return new Promise ((resolve, reject)=>{
             movieConection.query('SELECT uso.id, uso.name FROM componente JOIN uso on uso.fk_idComponente = componente.id WHERE componente.id = ?',
@@ -126,6 +140,8 @@ let movieModel = () => {}
         })
     }
  
+
+
 
 module.exports = movieModel
 

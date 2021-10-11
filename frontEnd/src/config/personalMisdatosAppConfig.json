@@ -1,31 +1,48 @@
 {
     "data":[
         {
-        "tipo": "normal",
-        "title":"Datos de cuenta",
-        "lista":[
-            {"rowTitle":"Usuario","name":"usuario"},
-            {"rowTitle":"E-mail","name":"eMail"}
-        ]
-        },{ "tipo":"normal",
+             "tipo": "normal",
+             "title":"Datos de cuenta",
+             "lista":[
+             {"rowTitle":"Usuario","name":"usuario"},
+             {"rowTitle":"E-mail","name":"email"}
+             ]
+        },{ 
+            "tipo":"normal",
             "title":"Datos personales",
             "lista":[
-                {"rowTitle":"Nombre y apellido","name":"nombreApellido"},
-                {"rowTitle":"Nombre elegido","name":"nombreElegido"},
-                {"rowTitle":"Documento", "name": "documento"},
-                {"rowTitle":"Teléfono", "name":"telefono"}
+             {"rowTitle":"Nombre y apellido","name":"fullName"},
+             {"rowTitle":"Nombre elegido","name":"nombreElegido"},
+             {"rowTitle":"Documento", "name": "Documento"},
+             {"rowTitle":"Teléfono", "name":"Telefono"}
             ]
-        },{ "tipo": "tarjeta",
+        },{ 
+            "tipo": "tarjeta",
             "title":"Tarjetas",
             "lista":[
                 {"terminacion":"","tipo":"","propietario":""}
-            ]
+             ]
         },{
             "tipo":"direccion",
             "title":"Direcciones",
-            "lista":[
-                {"calle":"Nombre y apellido","masInfo":"jsalkfjls djsalk fjlsd"},
-                {"calle":"Nombre y apellido","masInfo":"jsalkfjls djsalk fjlsd"}
+            "direccion":[
+                {
+                 "lista":[
+                    {"masInfo":"mas info 1"},
+                    {"masInfo":"mas info 2"}
+                 ],
+                 "rowSeparete": true,
+                 "calle":"carlotas"
+                
+                },
+                {
+                 "lista":[
+                    {"masInfo":"mas info 3"},
+                    {"masInfo":"mas info 4"}
+                 ],
+                 "rowSeparete": false,
+                 "calle":"marquita"
+                }
             ]
         }
     ]

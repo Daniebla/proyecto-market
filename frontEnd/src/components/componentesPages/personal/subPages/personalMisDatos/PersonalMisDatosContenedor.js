@@ -10,12 +10,11 @@ export const PersonalMisDatosContenedor = ({handleChange, form, data} ) =>{
             <div className ="PersonalMisDatos_contenido">
 
             
-             { data.tipo === "normal"  && data.lista.map((item,index)=>( <PersonalMisDatosRow  handleChange={handleChange} form={form} item={item}/> )) }
+             { data.tipo === "normal"  && data.lista.map((item,index)=>( <PersonalMisDatosRow form={form} item={item} key={index} handleChange={handleChange}/> )) }
              { data.tipo === "tarjeta"  && <PersonalMisDatosTarjeta /> }
-             { data.tipo === "direccion"  && <PersonalMisDatosDireccion/> }
+             { data.tipo === "direccion"  && data.direccion.map((item, index)=> <PersonalMisDatosDireccion key={index} item={item}/> )}
                 
                 
-                 {/* <div className="PersonalMisDatos_rowSeparete" /> */}
 
             </div>
         </div>

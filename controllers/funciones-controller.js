@@ -17,11 +17,14 @@ funcionesController.identificarUsuario =  async (req,nameHeader)=>{
         
     let dataUserIn = await jwtController.desencriptarUser(req,nameHeader)
 
-    let dataCorreo = dataUserIn.data.correo
-    let dataContra = dataUserIn.data.contra
+    // let util.inspect(dataUserIn)
+    // console.log( util.inspect(dataUserIn));
+
+    let dataCorreo = dataUserIn.data.email
+    let dataContra = dataUserIn.data.PASSWORD
     let datosUserDb = await movieModels.getUser(dataCorreo,dataContra)
     let verificarDataUserDb = await verifyController.verificarDatosDb(datosUserDb,1,1)
-    console.log(util.inspect(verificarDataUserDb))
+    // console.log(util.inspect(verificarDataUserDb))
     
     return verificarDataUserDb
 }
@@ -123,4 +126,14 @@ funcionesController.getUser =  async (correo, contra)=>{
     let verificarDataUserDb = await verifyController.verificarDatosDb(user,1,1)
     return user[0]
 }
+
+// personal 
+    // mis datos
+    funcionesController.personal_MisDatos_data = async ()=>{
+        
+        // let getUser = await funcionesController.identificarUsuario()
+
+        return 1
+    }
+
 module.exports = funcionesController

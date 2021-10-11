@@ -6,6 +6,8 @@ import { PersonalMisDatosContenedor } from './PersonalMisDatosContenedor';
 
 // Config
 import configPersonalMisDatosApp from '../../../../../config/personalMisdatosAppConfig.json'
+import { json } from 'body-parser';
+import { getUsuario } from '../../../../../helpers/isLogin';
 
 export const PersonalMisDatosApp = ({}) =>{
 
@@ -19,33 +21,53 @@ export const PersonalMisDatosApp = ({}) =>{
             });
           };
 
-          const handleSubmit = async (e) => {
-            e.preventDefault();
-            console.log("me enviaron");
-          };
+        const handleSubmit = async (e) => {
+          e.preventDefault();
+          console.log("me enviaron");
+        };
+        
     useEffect(()=>{
-        console.log(form);
+      console.log(form);
+      // console.log("use effect");
     })
-
-    useEffect(()=>{
-      // console.log(configPersonalMisDatosApp.data);
-      for(let data of configPersonalMisDatosApp.data){
-        // console.log(data);
-        // console.log(data.tipo);
-      }
-    },[])
-
     
+     
+      useEffect(()=>{
+          let jwtUsuario = getUsuario()
+
+          fetch('/personal/misdatos',{
+            method:'post',
+            // body: JSON.stringify({jwt: jwtUsuario}),
+            headers:{
+              "content-type":"application/json",
+              "authorization":jwtUsuario
+            }
+
+          })
+          .then((res)=> res.ok ? Promise.resolve(res) : Promise.reject(res))
+          .then( res => res.json())
+          .then(res => 
+            {
+              console.log(res)
+              setForm(res)
+
+            })
+          .catch(res => console.log(res))
+          
+      },[])
+     
 
     return(
       <form onSubmit={handleSubmit}>
 
-          {configPersonalMisDatosApp.data.map((data,index)=>( 
-            // <p>caca</p>
-            // data.tipo == "normal" && <
-             <PersonalMisDatosContenedor handleChange={handleChange} form={form} data={data} /> 
-              
-          ))}
+          {configPersonalMisDatosApp.data.map((data,index)=> 
+            <PersonalMisDatosContenedor 
+              handleChange={handleChange} 
+              form={form} 
+              data={data} 
+              key={index}
+              /> 
+          )}
         
         {/* <input type="submit" value="envíame"/> */}
       </form>

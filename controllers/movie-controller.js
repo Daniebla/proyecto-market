@@ -1,3 +1,4 @@
+const { Console } = require('console')
 let movieModels = require('../models/movie-models.js'),
     formidableController = require('../controllers/formidable-controller'),
     DirectoriosController = require('../controllers/directorios-controller'),
@@ -163,6 +164,40 @@ movieController.directoriosPesonal =  (req, res, next)=>{
     })
 }
 
+// personal 
+    // mis datos
+movieController.personal_MisDatos_data = async (req, res)=>{
+    // console.log(req.headers['authorization'])
+    const personal_MisDatos_data = async (req) =>{
+        
+        let identificarUsuario = await funcionesController.identificarUsuario(req,'authorization')
+        let userKeys = await jwtController.desencriptarUser(req,'authorization')
+        let correo = userKeys.data.email
+        let contra = userKeys.data.PASSWORD
+        let misDatos_data = await movieModels.personal_MisDatos_data(correo, contra)
+        
+
+        
+        return misDatos_data
+    }
+    personal_MisDatos_data(req)
+    .then((response)=>{
+        console.log(222);
+        console.log(response);
+        res.json(response[0])
+
+    })
+    .catch((response)=>{
+        console.log(111);
+        console.log(response);
+        res.json(response[0])
+
+    })
+
+
+
+
+}
 
 
 

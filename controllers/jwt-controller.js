@@ -1,5 +1,5 @@
 let    jwt = require("jsonwebtoken")
-
+const util = require('util')
 let jwtController = () => {}
 
     jwtController.encriptarUser= async (data) => { 
@@ -42,7 +42,7 @@ let jwtController = () => {}
 
         // console.log(req.headers)
         return new Promise((resolve, reject)=>{
-            // console.log(req.headers['authorization'])
+            console.log("header: " + util.inspect( req.headers) )
             let bearerHeader =  req.headers[nameHeader];
             if(typeof bearerHeader !== 'undefined'){
                 bearerHeader = bearerHeader.split(" ")[1];
@@ -58,13 +58,15 @@ let jwtController = () => {}
                        //         mensaje: "Post fue creado",
                        //         authData
                        //     });
-                        resolve(authData)
+                       
+                    // console.log(util.inspect(authData))
+                    resolve(authData)
                    }
                });
  
           }else{
             reject({
-                message:'no se encontro el token: \n'+error
+                message:'no se encontro el token en el header: \n'
                 ,numResolveError: 1
             })
           }

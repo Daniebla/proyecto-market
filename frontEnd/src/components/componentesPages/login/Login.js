@@ -40,9 +40,8 @@ export const Login = () =>{
         await fetch('/api/loginPost',{  
             method: 'POST',
             body: JSON.stringify(form),
-            headers:{
-                "content-type":"application/json"
-            }})
+            headers:{"content-type":"application/json"}
+        })
         .then((res)=> res.ok ? Promise.resolve(res) : Promise.reject(res))
         .then( res => res.json())
         .then((res)=>{
