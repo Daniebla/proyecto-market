@@ -1,9 +1,8 @@
 'use strict'
 
 let middlewares = require('./controllers/middlewares/middlewares'),
-	path = require('path')
-
-var express = require('express'),
+	path = require('path'),
+	express = require('express'),
 	favicon = require('serve-favicon'),
 	bodyParser = require('body-parser'),
 	morgan = require('morgan'),
@@ -13,7 +12,8 @@ var express = require('express'),
 	publicDir = express.static(`${__dirname}/public`),
 	viewDir = `${__dirname}/views/pages`,
 	port = (process.env.PORT || 3000),
-	app = express()
+	app = express(),
+	cors = require('cors')
 
 app
 	//configurando app
@@ -22,6 +22,8 @@ app
 	.set('port', port)
 	//ejecutando middlewares
 	.use(bodyParser.json())
+	.use(cors({origin:['http://localhost:3001']}))
+
 	// .use(restFul)
 	
 	// .get('/', logStuff, function (req, res, next) {

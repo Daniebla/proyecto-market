@@ -35,7 +35,7 @@ export const PersonalMisDatosApp = ({}) =>{
       useEffect(()=>{
           let jwtUsuario = getUsuario()
 
-          fetch('/personal/misdatos',{
+          fetch('http://localhost:3000/personal/misdatos',{
             method:'post',
             // body: JSON.stringify({jwt: jwtUsuario}),
             headers:{

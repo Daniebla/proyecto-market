@@ -37,7 +37,7 @@ export const Login = () =>{
 
     const login =  async ()=>{
         // let resCpy
-        await fetch('/api/loginPost',{  
+        await fetch('http://localhost:3000/api/loginPost',{  
             method: 'POST',
             body: JSON.stringify(form),
             headers:{"content-type":"application/json"}
