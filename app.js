@@ -35,7 +35,7 @@ app
 			// 	console.log('este es para login\n',req.method)
 			// 	next()
 			// })
-	console.log(232)
+	// console.log(232)
 
 	.use( favicon(faviconURL) )
 	.use(bodyParser.urlencoded({extended : false}))
