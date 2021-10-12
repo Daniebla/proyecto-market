@@ -10,8 +10,6 @@ import { useEffect } from "react";
 // Componentes
 import { BaseHeaderRoutes } from "./baseHeaderRoutes";
 import BaseRoutes from './BaseMenu/BaseRoutes';
-import AppContainer from '../../appContainer/AppContainer';
-
 
 export const BaseApp2 = ( ) =>{
 
@@ -19,7 +17,7 @@ export const BaseApp2 = ( ) =>{
     
 
     useEffect(()=>{
-        console.log(principal_elements_class);
+        // console.log(principal_elements_class);
     })
 
 

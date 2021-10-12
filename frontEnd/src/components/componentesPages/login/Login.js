@@ -23,8 +23,8 @@ export const Login = () =>{
 
     // variables
     const [form, setForm] = useState({
-        correo: 'angeldanielnieblalopez@gmail.com',
-        contra: 'contra1234'
+        correo: 'correo@gmail.com',
+        contra: '1'
     })
     const [error, setError] = useState(false)
     const handleChange = (e) => {
@@ -88,7 +88,7 @@ export const Login = () =>{
                         className="Card_form_input"
                         type="email" 
                         placeholder="correo electronico" 
-                        defaultValue="angeldanielnieblalopez@gmail.com"
+                        defaultValue="correo@gmail.com"
                         name="correo"
                         onChange={handleChange}   
                     />
@@ -97,7 +97,7 @@ export const Login = () =>{
                         className="Card_form_input" 
                         type="password" 
                         placeholder="password" 
-                        defaultValue="contra123"
+                        defaultValue="1"
                         name="contra"
                         onChange={handleChange}    
                     />

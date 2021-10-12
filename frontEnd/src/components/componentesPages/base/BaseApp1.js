@@ -2,16 +2,11 @@
 import { Provider} from 'react-redux';
 
 // componentes
-
-// Componenentes header
-
+import { BaseApp2 } from "./BaseApp2";
 
 // Redux
-
-
-// Configuración
 import store from '../../../baseApp1/redux/store';
-import { BaseApp2 } from "./BaseApp2";
+
 
 
 const BaseApp1 = ()=>{

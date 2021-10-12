@@ -4,12 +4,10 @@ import { IS_USER_LOGIN } from "../actions/userLoginAction"
 
 const havePassword = () =>{
     if( "" === localStorage.getItem("jwt") || null === localStorage.getItem("jwt") || undefined === localStorage.getItem("jwt")){
-        console.log(localStorage.getItem("jwt"));
-        console.log(11111);
+        console.log("No se detecto algun contenido en key jwt de usuario");
         return false
     }else{
-        console.log(localStorage.getItem("jwt"));
-        console.log(22222);
+        console.log("Se detecto algun contenido en key jwt de usuario");
         return true
     }
 }
@@ -26,14 +24,11 @@ const user_login = (state = default_user_login, action) =>{
             return{
                 ...state,
                 login: havePassword()
-                
-                // active: !state.active 
             }
         }
 
-        default: {
-            return state
-        }
+        default: return state
+       
     }
 }
 

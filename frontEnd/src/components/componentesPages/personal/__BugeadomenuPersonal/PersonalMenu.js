@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link, useRouteMatch } from "react-router-dom";
 
 
@@ -10,7 +10,7 @@ export const PersonalMenu = ()=>{
     let refBotton = useRef()
     let refMenu = useRef()
 
-    let {path, url} = useRouteMatch()
+    let {path} = useRouteMatch()
 
     
     useEffect(()=>{
