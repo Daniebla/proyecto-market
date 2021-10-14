@@ -2,7 +2,7 @@ import { useParams } from "react-router"
 import { Redirect, Route, useLocation } from "react-router"
 
 // Componentes
-import { PersonalMisDatosChange_RowApp } from "./personalMisDatosChange_Row/PersonalMisDatosChange_RowApp"
+import { PlantillaChange } from "./personalMisDatosChange_Row/PlantillaChange"
 import { PruebaComponente2 } from "./personalMisDatosChange_Row/PruebaComponente2"
 import { PruebaComponente1 } from "./personalMisDatosChange_Row/PruebaComponente1"
 
@@ -16,26 +16,26 @@ export const PersonalMisDatosChange = () =>{
 
     console.log(dataName)
     const renderSwitch = ()=>{
+        let propComponente, propTitle
+
         switch(dataName){
-            case dataName:
-                // if(
-                //     dataName === nombreCamposBdConfig.persona.
-                // )
-                // console.log("Nombre completo");
-                let componenteProp = < PruebaComponente2 />
-                return <PersonalMisDatosChange_RowApp name={nombreCamposBdConfig.persona.NOMBRECOMPLETO} component={componenteProp}/>
+            case nombreCamposBdConfig.persona.NOMBREELEGIDO[1]:
+                propComponente = <PruebaComponente1/>
+                // propTitle = 
                 
+            break                
             
-            case nombreCamposBdConfig.persona.NOMBREELEGIDO:
-                // console.log("Nombre elegido");
-                return(
-                    <PersonalMisDatosChange_RowApp name={nombreCamposBdConfig.persona.NOMBREELEGIDO}/>
-                )
-            
+            case nombreCamposBdConfig.persona.NOMBRECOMPLETO[1]:
+                propComponente = <PruebaComponente2/>
+                
+            break                
 
             default:
-                return <Redirect to={'/personal/misdatos'}/>
+            return <Redirect to={'/personal/misdatos'}/>
         }
+
+        return <PlantillaChange name={nombreCamposBdConfig.persona.NOMBRECOMPLETO[1]} component={propComponente}/>
+
     }
 
     return(

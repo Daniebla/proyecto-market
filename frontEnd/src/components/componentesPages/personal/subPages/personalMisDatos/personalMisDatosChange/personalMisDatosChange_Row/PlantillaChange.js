@@ -1,4 +1,4 @@
-export const PersonalMisDatosChange_RowApp = ({name,component }) =>{
+export const PlantillaChange = ({name,component }) =>{
 
     return(
         <>

@@ -17,12 +17,12 @@ import { getUsuario } from '../../../../../../../helpers/isLogin';
 export const PersonalMisDatosApp = () =>{
 
         const configurarNamesMisDatos = (configData) =>{
-          configData[0].lista[0].name = nombreCamposBdConfig.persona.USUARIO
-          configData[0].lista[1].name = nombreCamposBdConfig.persona.CORREO
-          configData[1].lista[0].name = nombreCamposBdConfig.persona.NOMBRECOMPLETO
-          configData[1].lista[1].name = nombreCamposBdConfig.persona.NOMBREELEGIDO
-          configData[1].lista[2].name = nombreCamposBdConfig.persona.DOCUMENTO
-          configData[1].lista[3].name = nombreCamposBdConfig.persona.TELEFONO
+          configData[0].lista[0].name = nombreCamposBdConfig.persona.USUARIO[1]
+          configData[0].lista[1].name = nombreCamposBdConfig.persona.CORREO[1]
+          configData[1].lista[0].name = nombreCamposBdConfig.persona.NOMBRECOMPLETO[1]
+          configData[1].lista[1].name = nombreCamposBdConfig.persona.NOMBREELEGIDO[1]
+          configData[1].lista[2].name = nombreCamposBdConfig.persona.DOCUMENTO[1]
+          configData[1].lista[3].name = nombreCamposBdConfig.persona.TELEFONO[1]
           
           return configData
         }
