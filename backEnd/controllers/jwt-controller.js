@@ -42,7 +42,7 @@ let jwtController = () => {}
 
         // console.log(req.headers)
         return new Promise((resolve, reject)=>{
-            console.log("header: " + util.inspect( req.headers) )
+            // console.log("header: " + util.inspect( req.headers) )
             let bearerHeader =  req.headers[nameHeader];
             if(typeof bearerHeader !== 'undefined'){
                 bearerHeader = bearerHeader.split(" ")[1];

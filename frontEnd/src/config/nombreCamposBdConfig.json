@@ -1,0 +1,12 @@
+{
+    "persona":{
+        "ID":"id",
+        "USUARIO":"usuario",
+        "CORREO":"correo",
+        "NOMBRECOMPLETO":"nombrecompleto",
+        "NOMBREELEGIDO":"nombreelegido",
+        "PASSWORD":"PASSWORD",
+        "DOCUMENTO":"documento",
+        "TELEFONO":"telefono"
+    }
+}

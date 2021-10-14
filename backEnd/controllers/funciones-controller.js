@@ -8,7 +8,8 @@ let movieModels = require('../models/movie-models.js'),
     seguridadController = require('../controllers/seguridad-controller'),
     verifyController = require('../controllers/verify-controller'),
     nodemailer = require('../controllers/nodemailer-controller'),
-    util = require('util')
+    util = require('util'),
+    nombreCamposBdConfig = require('../config/nombreCamposBdConfig.json' )
 
 
 let funcionesController = () => {}
@@ -17,14 +18,11 @@ funcionesController.identificarUsuario =  async (req,nameHeader)=>{
         
     let dataUserIn = await jwtController.desencriptarUser(req,nameHeader)
 
-    // let util.inspect(dataUserIn)
-    // console.log( util.inspect(dataUserIn));
+    let dataCorreo = dataUserIn.data[nombreCamposBdConfig.persona.CORREO],
+        dataContra = dataUserIn.data[nombreCamposBdConfig.persona.PASSWORD]
 
-    let dataCorreo = dataUserIn.data.email
-    let dataContra = dataUserIn.data.PASSWORD
     let datosUserDb = await movieModels.getUser(dataCorreo,dataContra)
     let verificarDataUserDb = await verifyController.verificarDatosDb(datosUserDb,1,1)
-    // console.log(util.inspect(verificarDataUserDb))
     
     return verificarDataUserDb
 }

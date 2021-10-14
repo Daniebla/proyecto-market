@@ -6,6 +6,7 @@ let movieModels = require('../models/movie-models.js'),
     funcionesController = require('../controllers/funciones-controller'),
     seguridadController = require('../controllers/seguridad-controller'),
     verifyController = require('../controllers/verify-controller'),
+    nombreCamposBdConfig = require('../config/nombreCamposBdConfig.json' ),
     util = require('util'),
     fetch = require('node-fetch'),
     pug = require('pug')
@@ -167,13 +168,12 @@ movieController.directoriosPesonal =  (req, res, next)=>{
 // personal 
     // mis datos
 movieController.personal_MisDatos_data = async (req, res)=>{
-    // console.log(req.headers['authorization'])
     const personal_MisDatos_data = async (req) =>{
         
         let identificarUsuario = await funcionesController.identificarUsuario(req,'authorization')
         let userKeys = await jwtController.desencriptarUser(req,'authorization')
-        let correo = userKeys.data.email
-        let contra = userKeys.data.PASSWORD
+        let correo = userKeys.data[nombreCamposBdConfig.persona.CORREO]
+        let contra = userKeys.data[nombreCamposBdConfig.persona.PASSWORD]
         let misDatos_data = await movieModels.personal_MisDatos_data(correo, contra)
         
 

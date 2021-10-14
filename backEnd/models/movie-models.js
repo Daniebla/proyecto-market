@@ -1,14 +1,15 @@
 let movieConection = require('./movie-conection.js'),
-    util = require('util')
+    util = require('util'),
+    nombreCamposBdConfig = require('../config/nombreCamposBdConfig.json' )
+
 
 let movieModel = () => {}
-
+ 
 
 // User
     movieModel.getUser = async (correo, contra)=>{
-        // console.log("movie-models: "+correo +"  "+ contra)
         return new Promise((resolve, reject)=>{
-            movieConection.query('SELECT * FROM persona WHERE email = ? and PASSWORD = ?',[correo,contra],(err, user)=>{
+            movieConection.query(`SELECT * FROM persona WHERE ${nombreCamposBdConfig.persona.CORREO } = ? and ${nombreCamposBdConfig.persona.PASSWORD} = ?`,[correo,contra],(err, user)=>{
                 if(err){
                     console.log("error obtenido: "+err)
                     reject(err)
@@ -24,7 +25,7 @@ let movieModel = () => {}
 // Personal
     movieModel.personal_MisDatos_data = (correo, contra)=>{
         return new Promise((resolve, reject)=>{
-            movieConection.query('SELECT usuario, email, fullName,nombreElegido,Documento, Telefono FROM persona WHERE email = ? and PASSWORD = ?',[correo,contra],(err, user)=>{
+                movieConection.query( `SELECT ${nombreCamposBdConfig.persona.USUARIO}, ${nombreCamposBdConfig.persona.CORREO}, ${nombreCamposBdConfig.persona.NOMBRECOMPLETO}, ${nombreCamposBdConfig.persona.NOMBREELEGIDO}, ${nombreCamposBdConfig.persona.DOCUMENTO}, ${nombreCamposBdConfig.persona.TELEFONO} FROM persona WHERE ${nombreCamposBdConfig.persona.CORREO} = ? and ${nombreCamposBdConfig.persona.PASSWORD} = ?`,[correo,contra],(err, user)=>{
                 if(err){
                     console.log("error obtenido: "+err)
                     reject(err)

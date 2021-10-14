@@ -20,11 +20,11 @@ verifyController.verificarDatosDb = (data,opcion,cantidad)=>{
     return new Promise((resolve, reject)=>{
         switch(opcion){
             case 1:
-                if(data.length == cantidad){
-                    console.log("datos obtenidos"+ data.length)
+                if(data.length === cantidad){
+                    console.log("datos obtenidos: "+ data.length)
                     resolve(`Cantidad de datos como los esperados: ${cantidad}`)
                 }else{
-                    console.log("datos obtenidos"+ data.length)
+                    console.log("datos obtenidos: "+ data.length)
                     reject(`No se ingresaron la cantidad de datos esperados: ${cantidad}`)
                 }
                 break

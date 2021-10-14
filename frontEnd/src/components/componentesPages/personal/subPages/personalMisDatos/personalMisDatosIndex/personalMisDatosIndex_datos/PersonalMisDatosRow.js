@@ -1,18 +1,20 @@
+import { Link, NavLink, useRouteMatch } from "react-router-dom";
+
 
 export const PersonalMisDatosRow = ({form, item}) => {
+    let {path } = useRouteMatch()
 
     return(
-        // <div className="PersonalMisDatos_row">
         <>
             <p className="PersonalMisDatos_rowTitle">{item.rowTitle}</p>
             <div className = "PersonalMisDatos_row">
                 <div className="PersonalMisDatos_rowText">
-                    { typeof form[item.name] !== 'undefined' ? form[item.name] : '...'}
+                    { typeof form[item.name] !== 'undefined' ? form[item.name] : '...' }
                 </div>
-                
-                <div className="PersonalMisDatos_rowChange"/>
+                    <Link to={`${path}/change/${item.name}`}>
+                    <div className="PersonalMisDatos_rowChange"/>
+                </Link>
             </div>
         </>
-        // </div>
     )
 }

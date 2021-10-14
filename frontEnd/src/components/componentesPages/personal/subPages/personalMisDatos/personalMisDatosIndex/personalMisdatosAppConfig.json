@@ -4,17 +4,17 @@
              "tipo": "normal",
              "title":"Datos de cuenta",
              "lista":[
-             {"rowTitle":"Usuario","name":"usuario"},
-             {"rowTitle":"E-mail","name":"email"}
+             {"rowTitle":"Usuario","name":""},
+             {"rowTitle":"E-mail","name":""}
              ]
         },{ 
             "tipo":"normal",
             "title":"Datos personales",
             "lista":[
-             {"rowTitle":"Nombre y apellido","name":"fullName"},
-             {"rowTitle":"Nombre elegido","name":"nombreElegido"},
-             {"rowTitle":"Documento", "name": "Documento"},
-             {"rowTitle":"Teléfono", "name":"Telefono"}
+             {"rowTitle":"Nombre y apellido","name":""},
+             {"rowTitle":"Nombre elegido","name":""},
+             {"rowTitle":"Documento", "name": ""},
+             {"rowTitle":"Teléfono", "name":""}
             ]
         },{ 
             "tipo": "tarjeta",

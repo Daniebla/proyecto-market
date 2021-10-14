@@ -1,16 +1,20 @@
 import { Route, Switch, useRouteMatch} from "react-router-dom"
+
+// Componentes
 import { PersonalIndex } from "./subPages/personalIndex/PersonalIndex"
-// import { PersonalMisDatosApp } from "./subPages/personalMisDatos/personalMisDatosIndex/personalMisDatosIndex_datos/PersonalMisDatosApp"
-import { PersonalMisDatos_Routes } from "./subPages/personalMisDatos/PersonalMisDatos_Routes"
+import { PersonalMisDatos } from "./subPages/personalMisDatos/PersonalMisDatos"
+
 
 export const PersonalRoutes = ()=>{
 
     let {path} = useRouteMatch()
     
     return(
-        // <PersonalMisDatos_Routes
         <Switch>
-            <Route exact path={path} component={PersonalIndex} />
+            {/* menu personal en index */}
+            <Route exact path={path} component={PersonalIndex} /> 
+
+            <Route path={`${path}/misdatos`} component={PersonalMisDatos} />
 
             <Route path={`${path}/credito`}>
                 <p>credito</p>
@@ -31,10 +35,6 @@ export const PersonalRoutes = ()=>{
             <Route path={`${path}/novedades`}>
                 <p>novedades</p>
             </Route>
-
-            <Route path={`${path}/misdatos`} component={PersonalMisDatos_Routes} />
-
-
 
 
 
