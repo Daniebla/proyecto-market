@@ -14,7 +14,7 @@ export const PersonalMisDatosChange = () =>{
     let {dataName} = useParams()
 
 
-    console.log(dataName)
+    // console.log(dataName)
     const renderSwitch = ()=>{
         let propComponente, propTitle
 

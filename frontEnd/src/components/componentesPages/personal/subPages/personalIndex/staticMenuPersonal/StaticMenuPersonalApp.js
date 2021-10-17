@@ -11,7 +11,7 @@ import { StaticMenuPersonalBind } from './StaticMenuPersonalBind'
 export const StaticMenuPersonalApp = ( {config}) =>{
     
     useEffect(()=>{
-        console.log(config);
+        // console.log(config);
     })
 
     return(

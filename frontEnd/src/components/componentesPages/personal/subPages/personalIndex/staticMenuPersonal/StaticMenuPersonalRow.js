@@ -8,7 +8,7 @@ export const StaticMenuPersonalRow = ( {title,ruta,srcImage } ) =>{
     }
     
     useEffect(()=>{
-     console.log(title);   
+    //  console.log(title);   
     })
     return(
              <Link className = "staticMenuPersonalRow" onClick={clickeame} to={ruta}>

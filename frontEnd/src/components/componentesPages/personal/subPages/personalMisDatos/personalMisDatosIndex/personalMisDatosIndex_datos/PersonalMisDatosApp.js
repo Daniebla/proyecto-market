@@ -7,35 +7,16 @@ import React, { useState, useEffect } from 'react';
 // Componentes
 import { PersonalMisDatosContenedor } from './PersonalMisDatosContenedor';
 
-// Config
-import configPersonalMisDatosApp from '../personalMisdatosAppConfig.json'
-import nombreCamposBdConfig from '../../../../../../../config/nombreCamposBdConfig.json'
-
 // Helpers
 import { getUsuario } from '../../../../../../../helpers/isLogin';
 
-export const PersonalMisDatosApp = () =>{
+export const PersonalMisDatosApp = ({configForm}) =>{
 
-        const configurarNamesMisDatos = (configData) =>{
-          configData[0].lista[0].name = nombreCamposBdConfig.persona.USUARIO[1]
-          configData[0].lista[1].name = nombreCamposBdConfig.persona.CORREO[1]
-          configData[1].lista[0].name = nombreCamposBdConfig.persona.NOMBRECOMPLETO[1]
-          configData[1].lista[1].name = nombreCamposBdConfig.persona.NOMBREELEGIDO[1]
-          configData[1].lista[2].name = nombreCamposBdConfig.persona.DOCUMENTO[1]
-          configData[1].lista[3].name = nombreCamposBdConfig.persona.TELEFONO[1]
-          
-          return configData
-        }
         // variables
         const [form, setForm] = useState({})
-        const [configForm, setConfigForm] = useState([])
-        
         
         useEffect(()=>{
           let jwtUsuario = getUsuario()
-          let configData = configurarNamesMisDatos(configPersonalMisDatosApp.data) 
-          setConfigForm(configData)
-
           
           fetch('http://localhost:3000/personal/misdatos',{
             method:'post',
@@ -54,7 +35,7 @@ export const PersonalMisDatosApp = () =>{
         },[])
 
       useEffect(()=>{
-        console.log(form)
+        // console.log(form)
       })
      
 
