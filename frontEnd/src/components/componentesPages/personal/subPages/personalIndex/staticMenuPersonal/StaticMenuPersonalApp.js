@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 import { StaticMenuPersonalBind } from './StaticMenuPersonalBind'
 
 // Menu de personal 
-export const StaticMenuPersonalApp = ( {config}) =>{
+export const StaticMenuPersonalApp = ( {config }) =>{
     
     useEffect(()=>{
         // console.log(config);
@@ -17,7 +17,7 @@ export const StaticMenuPersonalApp = ( {config}) =>{
     return(
         <div className="staticMenuPersonal">
             {
-                config.map((item,index)=> <StaticMenuPersonalBind item={item} key={index}/>)
+               config.length && config.map((item,index)=> <StaticMenuPersonalBind item={item} key={index}/>)
             }
         </div>
     )

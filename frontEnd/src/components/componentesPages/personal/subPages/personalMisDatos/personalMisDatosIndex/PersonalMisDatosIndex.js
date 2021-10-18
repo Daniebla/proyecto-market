@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react"
+
+// Componentes
 import { PersonalMisDatosApp } from "./personalMisDatosIndex_datos/PersonalMisDatosApp"
 
 // Config
 import nombreCamposBdConfig from '../../../../../../config/nombreCamposBdConfig.json'
 import configPersonalMisDatosApp from './personalMisdatosAppConfig.json'
+
+// Helpers
 import { cambiarDataColeccion } from "../../../../../../helpers/cambiarDataColeccion"
 
 
@@ -15,16 +19,11 @@ export const PersonalMisDatosIndex = () => {
     
 
      useEffect(()=>{
-         const cambiarData = async ()=>{
-            // Copia el objeto
-            let copiaConfigPersonalMisDatosApp = JSON.stringify(configPersonalMisDatosApp)
-                copiaConfigPersonalMisDatosApp = JSON.parse(copiaConfigPersonalMisDatosApp)
 
-            const newData = await cambiarDataColeccion(copiaConfigPersonalMisDatosApp, nombreCamposBdConfig,"name", 1)
-            // console.log(newData.data);
+            const newData = cambiarDataColeccion(configPersonalMisDatosApp, nombreCamposBdConfig,"name", 1)
+
+            // El nombre de la prpiedad corresponde al nombre de los datos
             setConfigForm(newData.data)
-         }
-         cambiarData()
 
      },[]) 
     return(

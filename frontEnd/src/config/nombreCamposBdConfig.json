@@ -1,12 +1,17 @@
 {
     "persona":{
-        "ID":[0,"id","Id"],
-        "USUARIO":[1,"usuario","Usuario"],
-        "CORREO":[2,"correo","Correo"],
+        "ID":            [0,"id","Id"],
+        "USUARIO":       [1,"usuario","Usuario"],
+        "CORREO":        [2,"correo","Correo"],
         "NOMBRECOMPLETO":[3,"nombrecompleto","Nombre completo"],
-        "NOMBREELEGIDO":[4,"nombreelegido","Nombre elegido"],
-        "PASSWORD":[5,"PASSWORD","Contaseña"],
-        "DOCUMENTO":[6,"documento","Documento"],
-        "TELEFONO":[7,"telefono","Teléfono"]
+        "NOMBREELEGIDO": [4,"nombreelegido","Nombre elegido"],
+        "PASSWORD":      [5,"PASSWORD","Contaseña"],
+        "DOCUMENTO":     [6,"documento","Documento"],
+        "TELEFONO":      [7,"telefono","Teléfono"]
+    },
+    "personalPage":{
+        "MISDATOS":      [8,"misdatos","Mis datos"]
     }
+
+    
 }

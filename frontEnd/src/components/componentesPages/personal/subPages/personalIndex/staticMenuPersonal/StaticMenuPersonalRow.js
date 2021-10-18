@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useRouteMatch} from "react-router-dom";
 
 export const StaticMenuPersonalRow = ( {title,ruta,srcImage } ) =>{
 
@@ -10,8 +10,11 @@ export const StaticMenuPersonalRow = ( {title,ruta,srcImage } ) =>{
     useEffect(()=>{
     //  console.log(title);   
     })
+
+    let {url }= useRouteMatch()
+
     return(
-             <Link className = "staticMenuPersonalRow" onClick={clickeame} to={ruta}>
+             <Link className = "staticMenuPersonalRow" onClick={clickeame} to={ `${url}/${ruta}` }>
                      <img className="staticMenuPersonalRow_icon" src={process.env.PUBLIC_URL + srcImage} alt={title}/>
 
                      <div className="staticMenuPersonalRow_text">

@@ -1,9 +1,11 @@
-export const cambiarDataColeccion = async (base,dataCampos,propiedadName,posDataDeseada)=>{
+export const cambiarDataColeccion =  (base,dataCampos,propiedadName,posDataDeseada)=>{
+    // // Copia el objeto
+  let copiaObjeto = JSON.parse( JSON.stringify(base) )
 
-  let haber = await recorrerColeccion(base, dataCampos, propiedadName, posDataDeseada)
+  recorrerColeccion(copiaObjeto, dataCampos, propiedadName, posDataDeseada)
 
   // console.log(base)
-    return base
+    return copiaObjeto
 }
 
 
@@ -15,12 +17,14 @@ const recorrerColeccion = (base, dataCampos, propiedadName, posDataDeseada) =>{
         // console.log("Objeto  Objeto  Objeto  Objeto  Objeto  Objeto  ");
             let keys = Object.keys(base)
             if( base.hasOwnProperty(propiedadName) ){
-              let idBuscar = base.name
-              console.log( buscarDataPorId(dataCampos,idBuscar, posDataDeseada));
-              // console.log(`data campos: ${dataCampos}`);
-              // console.log(`Id buscar: ${idBuscar}`);
-              // console.log(`Pos data deseada: ${posDataDeseada}`)
-              base.name = buscarDataPorId(dataCampos,idBuscar, posDataDeseada)
+              let idBuscar = base[propiedadName]
+              if(!isNaN(idBuscar)){
+                console.log( buscarDataPorId(dataCampos,idBuscar, posDataDeseada));
+                // console.log(`data campos: ${dataCampos}`);
+                // console.log(`Id buscar: ${idBuscar}`);
+                // console.log(`Pos data deseada: ${posDataDeseada}`)
+                base[propiedadName] = buscarDataPorId(dataCampos,idBuscar, posDataDeseada)
+              }else console.warn(`La propiedad ${propiedadName} debería de ser un numero, pero es: ${idBuscar}`)
             }
 
             for(let atributos in keys){
