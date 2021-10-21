@@ -1,28 +1,16 @@
 import { StaticMenuPersonalApp } from "./staticMenuPersonal/StaticMenuPersonalApp"
-import { useEffect, useState } from "react"
+import {  useState } from "react"
 
 // Config
-import personalMenuConfig from'../../../../../config/personalStaticMenuConfig.json'
-import nombreCamposBdConfig from'../../../../../config/nombreCamposBdConfig.json'
+import StaticMenuConfig from'../../../../../config/personalStaticMenuConfig'
 
 // Helpers
-import { cambiarDataColeccion } from "../../../../../helpers/cambiarDataColeccion"
 
 export const PersonalIndex = () =>{
 
     
-    const [personalMenuData, setPersonalMenuData] = useState([])
+    const [personalMenuData] = useState(StaticMenuConfig)
 
-    useEffect(()=>{
-
-        let newData =  cambiarDataColeccion(personalMenuConfig, nombreCamposBdConfig,"title", 2)
-            newData =  cambiarDataColeccion(newData, nombreCamposBdConfig,"ruta", 1)
-        // El nombre de la prpiedad corresponde al nombre de los datos
-        setPersonalMenuData(newData.lista)
-
-        
-    },[])
     
     return(<StaticMenuPersonalApp config={personalMenuData} />)
-
 }
