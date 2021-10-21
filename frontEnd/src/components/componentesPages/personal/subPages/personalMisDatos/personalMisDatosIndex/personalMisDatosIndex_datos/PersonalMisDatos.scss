@@ -1,38 +1,5 @@
 .PersonalMisDatos{
 
-    &_contenedor{
-        margin: 0 auto;
-        width: 90%;
-        min-height: 30px;
-        // padding: ;
-        padding-bottom: 5px;
-        // background-color: red;
-        
-        display: grid;
-        grid-template-columns: 100%;
-        grid-template-rows: 30px 1fr;
-        row-gap: 10px;
-        // border-radius: 10px;
-    }
-
-    &_title{
-        margin: 0;
-        padding: 0;
-        // padding-bottom: 10px;
-        font-size: 30px;
-        // background-color: burlywood;
-    }
-
-    &_contenido{
-        margin: 0 auto;
-        // margin-top: 8px;
-        background-color: rgb(4, 201, 119);
-        height: 100%;
-        width: 100%;
-        border-radius: 6px;
-        padding-bottom: 10px;
-
-    }
 /* ROW__ROW__ROW__ROW__ROW__ROW__ROW__ROW__ROW__ROW__ROW__ROW__ROW__*/
     &_row{
         // height: 100px;

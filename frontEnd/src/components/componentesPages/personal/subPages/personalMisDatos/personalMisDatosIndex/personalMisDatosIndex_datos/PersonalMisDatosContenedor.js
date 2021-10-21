@@ -1,19 +1,16 @@
 import { PersonalMisDatosDireccion } from "./PersonalMisDatosDireccion"
 import { PersonalMisDatosRow } from "./PersonalMisDatosRow"
 import { PersonalMisDatosTarjeta } from "./PersonalMisDatosTarjeta"
+import {Contenedor2App} from "../../../../../../contenedor2/Contenedor2App"
 
 export const PersonalMisDatosContenedor = ({ form, data } ) =>{
 
     return(
-        <div className="PersonalMisDatos_contenedor">
-            <p className="PersonalMisDatos_title">{data.title}</p>
-            <div className ="PersonalMisDatos_contenido">
-            
-             { data.tipo === "normal"  && data.lista.map((item,index)=> <PersonalMisDatosRow form={form} item={item} key={index} /> ) }
-             { data.tipo === "tarjeta"  && <PersonalMisDatosTarjeta /> }
-             { data.tipo === "direccion"  && data.direccion.map((item, index)=> <PersonalMisDatosDireccion key={index} item={item}/> )}
-                
-            </div>
-        </div>
+            <Contenedor2App title={data.title}>
+                { data.tipo === "normal"  && data.lista.map((item,index)=> <PersonalMisDatosRow form={form} item={item} key={index} /> ) }
+                { data.tipo === "tarjeta"  && <PersonalMisDatosTarjeta /> }
+                { data.tipo === "direccion"  && data.direccion.map((item, index)=> <PersonalMisDatosDireccion key={index} item={item}/> )}
+            </Contenedor2App>                
     )
 }
+            

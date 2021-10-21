@@ -1,0 +1,32 @@
+.contenedor2{
+    margin: 0 auto;
+    width: 90%;
+    min-height: 30px;
+    padding-bottom: 5px;
+    
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 30px 1fr;
+    row-gap: 10px;
+
+
+    &_title{
+        margin: 0;
+        padding: 0;
+        grid-row: 1/2;
+        font-size: 7vw;
+        overflow: hidden;
+    }
+    
+    &_contenido{
+        margin: 0 auto;
+        // margin-top: 8px;
+        background-color: rgb(4, 201, 119);
+        height: 100%;
+        width: 100%;
+        border-radius: 6px;
+        padding-bottom: 10px;
+    }
+
+
+}
