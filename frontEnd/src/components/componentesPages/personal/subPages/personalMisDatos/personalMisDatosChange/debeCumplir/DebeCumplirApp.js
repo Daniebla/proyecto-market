@@ -1,7 +1,12 @@
 import './debeCumplir.scss'
-export const DebeCumplir = () =>{
+export const DebeCumplir = ({initialData}) =>{
 
     return(
-        <div className ="DebeCumplir"></div>
+        
+        <ul className ="DebeCumplir">
+            {initialData.length > 0 && initialData.map((data, index)=> (
+                <li key={index}>1</li>
+            )) }    
+        </ul>
     )
 }
