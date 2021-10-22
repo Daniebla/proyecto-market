@@ -8,7 +8,7 @@ import { ChangeDataApp } from "./ChangeData/ChangeDataApp"
 // CONFIG
 import nombreCamposBdConfig from '../../../../../../../src/config/nombreCamposBdConfig.json'
 import { Contenedor2App } from "../../../../../contenedor2/Contenedor2App"
-import {nombreCompleto,nombreElegido } from './dataChange'
+import {nombreCompleto,nombreElegido } from './dataChangeConfig'
 
 
 export const PersonalMisDatosChange = () =>{
