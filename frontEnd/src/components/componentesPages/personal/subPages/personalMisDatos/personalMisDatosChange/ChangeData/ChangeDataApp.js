@@ -10,7 +10,7 @@ import { getUsuario } from '../../../../../../../helpers/isLogin';
 
 
 
-export const ChangeDataApp = ( { initialData }) =>{
+export const ChangeDataApp = ( { initialData, dataName}) =>{
 
     const [form, setForm] = useState({})
 
@@ -20,6 +20,7 @@ export const ChangeDataApp = ( { initialData }) =>{
           ...form,
           [e.target.name]: e.target.value,
         });
+        console.log("cambios"+ e.target.name);
       };
     
       const handleChecked = (e) => {
@@ -38,7 +39,7 @@ export const ChangeDataApp = ( { initialData }) =>{
       const getData = () => {
           let jwtUsuario = getUsuario()
         
-          fetch('http://localhost:3000/personal/misdatos',{
+          fetch(`http://localhost:3000/getData/${dataName}`,{
             method:'post',
             // body: JSON.stringify({jwt: jwtUsuario}),
             headers:{
@@ -49,12 +50,17 @@ export const ChangeDataApp = ( { initialData }) =>{
           })
           .then((res)=> res.ok ? Promise.resolve(res) : Promise.reject(res))
           .then( res => res.json())
-          .then(res => setForm(res))
+          .then(res => {
+            console.log(res);
+            setForm(res)
+          })
+          
           .catch(res => console.log(res))
     }
 
       useEffect(()=>{
         getData()
+        console.log(dataName);
       },[])
 
     return(

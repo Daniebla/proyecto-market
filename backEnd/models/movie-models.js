@@ -36,6 +36,24 @@ let movieModel = () => {}
             })
         })
     }
+// Get data
+    movieModel.getData_Persona = (correo, contra, nombrePropiedades)=>{
+        return new Promise((resolve, reject)=>{
+                movieConection.query( `SELECT  ${nombrePropiedades} FROM persona WHERE ${nombreCamposBdConfig.persona.CORREO} = ? and ${nombreCamposBdConfig.persona.PASSWORD} = ?`,[correo,contra],(err, user)=>{
+                if(err){
+                    console.log("error obtenido: "+err)
+                    reject(err)
+                }else{
+                    // console.log("usuario obtenido: "+ util.inspect(user))
+                    resolve(user)
+                }
+            })
+        })
+    }
+
+
+
+
 
 
     movieModel.getUserByEmail = async (correo)=>{

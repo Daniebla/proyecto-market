@@ -22,7 +22,7 @@ export const PersonalMisDatosChange = () =>{
 
         switch(dataName){
             case nombreCamposBdConfig.persona.NOMBREELEGIDO[1]:
-                propTitle = "Editar: " + nombreCamposBdConfig.persona.NOMBRECOMPLETO[2]
+                propTitle = "Editar: " + nombreCamposBdConfig.persona.NOMBREELEGIDO[2]
                 initialData = nombreElegido
                 
             break                
@@ -39,7 +39,7 @@ export const PersonalMisDatosChange = () =>{
          return <Contenedor2App 
                     title={propTitle} 
                     children={
-                        <ChangeDataApp initialData ={initialData}/>
+                        <ChangeDataApp initialData ={initialData} dataName={dataName}/>
                     }
                 />
 

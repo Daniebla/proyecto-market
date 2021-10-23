@@ -1,3 +1,5 @@
+import CamposBdConfig from '../../../../../../config/nombreCamposBdConfig.json'
+
 
 export  let nombreCompleto = {
             isTextForm:true,    
@@ -10,13 +12,10 @@ export  let nombreCompleto = {
             expresionRegular: "",
             textForms:[
                 {
-                    title:"nombreCompleto1",
-                    name:"nombrecompleto"
+                    title: CamposBdConfig.persona.NOMBRECOMPLETO[2],
+                    name: CamposBdConfig.persona.NOMBRECOMPLETO[1]
                 }
-                ,{
-                    title:"nombreCompleto2",
-                    name:"nombrecompleto"
-                }
+                
             ]
         
          }
@@ -32,11 +31,8 @@ export  let nombreElegido = {
         expresionRegular: "",
         textForms:[
             {
-                title:"nombreCompleto1",
-                name:"nombrecompleto"
-            },{
-                title:"nombreCompleto2",
-                name:"nombrecompleto"
+                title: CamposBdConfig.persona.NOMBREELEGIDO[2],
+                name: CamposBdConfig.persona.NOMBREELEGIDO[1]
             }
         ]
     }

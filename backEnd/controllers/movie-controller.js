@@ -194,8 +194,63 @@ movieController.personal_MisDatos_data = async (req, res)=>{
 
     })
 
+}
 
+movieController.getData = async (req, res) => {
+    let nombrePropiedades,nombreFuncionGetData
+    const getData = async (req) =>{
+        let identificarUsuario = await funcionesController.identificarUsuario(req, 'authorization')
+        let userKeys = await jwtController.desencriptarUser(req,'authorization')
+        let correo = userKeys.data[nombreCamposBdConfig.persona.CORREO]
+        let contra = userKeys.data[nombreCamposBdConfig.persona.PASSWORD]
+        let getData_data
 
+        switch (nombreFuncionGetData) {
+            case 'getData_Persona':
+                 getData_data = movieModels['getData_Persona'](correo,contra,nombrePropiedades)
+                break;
+        
+            default:
+                console.log("debería de haber error");
+                break;
+        }
+
+        return getData_data
+    }
+
+    const dataName = req.params.dataName
+
+    switch (dataName) {
+        case nombreCamposBdConfig.persona.NOMBRECOMPLETO:
+            nombreFuncionGetData = 'getData_Persona' 
+            nombrePropiedades = nombreCamposBdConfig.persona.NOMBRECOMPLETO
+
+            break;
+        case nombreCamposBdConfig.persona.NOMBREELEGIDO:
+            nombreFuncionGetData = 'getData_Persona'    
+            nombrePropiedades = nombreCamposBdConfig.persona.NOMBREELEGIDO
+            
+            break;
+    
+        default:
+            res.status(404)
+            res.json({error:"Campo no espicificado" })
+            break;
+    }
+
+    getData(req)
+    .then((response)=>{
+        console.log(222);
+        console.log(response);
+        res.json(response[0])
+
+    })
+    .catch((response)=>{
+        console.log(111);
+        console.log(response);
+        res.json({error:response})
+
+    })
 
 }
 

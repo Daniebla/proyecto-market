@@ -5,12 +5,12 @@ var path = require('path'),
 	movieController = require ('../controllers/movie-controller'),
 	router = express.Router()
 
-	let objeto = {casa: "casa"}
 
 router
 	/* ************************************************************************************************************************************* */
 	//Personal 
 	.post('/personal/misdatos',movieController.personal_MisDatos_data)
+	.post('/getData/:dataName',movieController.getData)
 
 	.get('/casas',(req,res)=>{
 		res.json(objeto)
