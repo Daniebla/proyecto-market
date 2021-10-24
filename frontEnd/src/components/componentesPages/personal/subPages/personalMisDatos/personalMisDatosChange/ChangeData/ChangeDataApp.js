@@ -1,5 +1,6 @@
+import './changeDataApp.scss'
 // Librerías
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 // Componentes
 import { BoxChangeData } from "../BoxChangeData/BoxChangeData";
@@ -7,15 +8,16 @@ import { DebeCumplir } from "../../../../../../debeCumplir/DebeCumplirApp"
 
 // Helper
 import { getUsuario } from '../../../../../../../helpers/isLogin';
+import { BotonApp } from '../../../../../../boton/BotonApp';
 
 
 
 export const ChangeDataApp = ( { initialData, dataName}) =>{
 
     const [form, setForm] = useState({})
+    const refForm = useRef()
 
-
-    const handleChange = (e) => {
+      const handleChange = (e) => {
         setForm({
           ...form,
           [e.target.name]: e.target.value,
@@ -30,18 +32,23 @@ export const ChangeDataApp = ( { initialData, dataName}) =>{
         });
       };
     
+      const sendSubmit = () =>{
+        refForm.current.submit()
+      }
+
+      const cancelForm = () =>{
+        console.log("slaaldfjklsdjkfllaks")
+      }
       const handleSubmit = (e) => {
         e.preventDefault();
         alert("El formulario se ha enviado");
       };
-
 
       const getData = () => {
           let jwtUsuario = getUsuario()
         
           fetch(`http://localhost:3000/getData/${dataName}`,{
             method:'post',
-            // body: JSON.stringify({jwt: jwtUsuario}),
             headers:{
               "content-type":"application/json",
               "authorization":jwtUsuario
@@ -60,18 +67,28 @@ export const ChangeDataApp = ( { initialData, dataName}) =>{
 
       useEffect(()=>{
         getData()
-        console.log(dataName);
+        // refForm.current.submit()
       },[])
 
     return(
-        <>
+        <form ref = {refForm} onSubmit={handleSubmit}>
+
             <DebeCumplir initialData = {initialData.debeCumplir}/>
 
-            {initialData.isTextForm && 
-                initialData.textForms.map((dataBox,index)=>(
-                    <BoxChangeData form ={form} dataBox = {dataBox} handleChange={handleChange} key = {index} />   
-                ))
+            {
+              initialData.forms.length > 0 && 
+                initialData.forms.map((dataBox,index)=>
+                  dataBox.isTextForm && <BoxChangeData form ={form} dataBox = {dataBox} handleChange={handleChange} key = {index} />    
+
+                )
             }
-        </>
+
+            <div className="changeDataApp_ContenedorButtons">
+              <BotonApp textBotton="Cancelar" sizeBottonCase="form" typeBotton="cancelar" typeInput = "button" />
+              <BotonApp textBotton="Enviar" sizeBottonCase="form" typeBotton="enviar" typeInput = "submit"/>
+            </div>
+
+        </form>
+
     )
 }

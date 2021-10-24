@@ -1,0 +1,19 @@
+.changeDataApp{
+    &_ContenedorButtons{
+
+        display: grid;
+        grid-template-columns: 50% 50%;
+        column-gap: 10px;
+        
+
+        margin-top: 20px;
+        :nth-child(1){
+             justify-self: end;
+        }
+        :nth-child(2){
+            justify-self: start;
+        }
+    }
+    
+
+}
