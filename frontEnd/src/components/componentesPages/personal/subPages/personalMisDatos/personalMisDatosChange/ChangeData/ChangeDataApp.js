@@ -1,6 +1,6 @@
 import './changeDataApp.scss'
 // Librerías
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect} from 'react';
 
 // Componentes
 import { BoxChangeData } from "../BoxChangeData/BoxChangeData";
@@ -10,15 +10,19 @@ import { DebeCumplir } from "../../../../../../debeCumplir/DebeCumplirApp"
 import { getUsuario } from '../../../../../../../helpers/isLogin';
 import { BotonApp } from '../../../../../../boton/BotonApp';
 
+// Config
+import nombreCamposBdConfig from '../../../../../../../../src/config/nombreCamposBdConfig.json'
 
 
 export const ChangeDataApp = ( { initialData, dataName}) =>{
 
-    const [form, setForm] = useState({})
-    const refForm = useRef()
+    const stylesButtonsDefault = ["bottonApp_sylesInitial bottonApp_sizeBotton_form bottonApp_typeBotton_cancelar", "bottonApp_sylesInitial bottonApp_sizeBotton_form bottonApp_typeBotton_enviar"]
 
-      const handleChange = (e) => {
-        setForm({
+    const [stylesButtons] = useState(stylesButtonsDefault)
+    const [form, setForm] = useState({})
+
+      const handleChange = (e) => { 
+        setForm({ 
           ...form,
           [e.target.name]: e.target.value,
         });
@@ -32,17 +36,45 @@ export const ChangeDataApp = ( { initialData, dataName}) =>{
         });
       };
     
-      const sendSubmit = () =>{
-        refForm.current.submit()
-      }
 
-      const cancelForm = () =>{
+      const handleCancelForm = () =>{
         console.log("slaaldfjklsdjkfllaks")
       }
+
+
       const handleSubmit = (e) => {
         e.preventDefault();
-        alert("El formulario se ha enviado");
+        // alert("El formulario se ha enviado");
+        console.log("Formulario enviado")
+        updateData()
+
+
+
       };
+
+    const updateData = () =>{
+
+      let jwtUsuario = getUsuario()
+      let opcionEditar = `${nombreCamposBdConfig.persona.NAMETABLE[1]}_${dataName}`
+      console.log(opcionEditar)
+      fetch(`http://localhost:3000/updateData/${opcionEditar}`,{
+        method:'post',
+        body:JSON.stringify(form),
+        headers:{
+          "content-type":"application/json",
+          "authorization":jwtUsuario
+        }
+
+      })
+      .then((res)=> res.ok ? Promise.resolve(res) : Promise.reject(res))
+      .then( res => res.json())
+      .then(res => {
+        console.log(res);
+        setForm(res)
+      })
+      
+      .catch(res => console.log(res))
+    }
 
       const getData = () => {
           let jwtUsuario = getUsuario()
@@ -71,7 +103,7 @@ export const ChangeDataApp = ( { initialData, dataName}) =>{
       },[])
 
     return(
-        <form ref = {refForm} onSubmit={handleSubmit}>
+        <form  onSubmit={handleSubmit}>
 
             <DebeCumplir initialData = {initialData.debeCumplir}/>
 
@@ -84,8 +116,10 @@ export const ChangeDataApp = ( { initialData, dataName}) =>{
             }
 
             <div className="changeDataApp_ContenedorButtons">
-              <BotonApp textBotton="Cancelar" sizeBottonCase="form" typeBotton="cancelar" typeInput = "button" />
-              <BotonApp textBotton="Enviar" sizeBottonCase="form" typeBotton="enviar" typeInput = "submit"/>
+              <BotonApp textBotton="Cancelar"  typeInput = "button" clases={stylesButtons[0]} 
+              handleClick={handleCancelForm}
+              />
+              <BotonApp textBotton="Enviar"  typeInput = "submit" clases={stylesButtons[1]}/>
             </div>
 
         </form>

@@ -51,7 +51,21 @@ let movieModel = () => {}
         })
     }
 
+// Update data
 
+    movieModel.updateData_Persona = (correo, contra, nombrePropiedades, objectNuevoValor)=>{
+        return new Promise((resolve, reject)=>{
+            movieConection.query( `UPDATE ${nombreCamposBdConfig.persona.NAMETABLE} SET ${nombrePropiedades} = "${objectNuevoValor[nombrePropiedades]}"  WHERE ${nombreCamposBdConfig.persona.CORREO} = ? and ${nombreCamposBdConfig.persona.PASSWORD} = ?`,[correo,contra],(err, user)=>{
+                if(err){
+                    console.log("error obtenido: "+err)
+                    reject(err)
+                }else{
+                    // console.log("usuario obtenido: "+ util.inspect(user))
+                    resolve(user)
+                }
+            })
+        })
+    }
 
 
 
@@ -85,7 +99,6 @@ let movieModel = () => {}
             })
         })
     }
-
     // directorios
     movieModel.getComponente = async (componente_id)=>{
         return new Promise((resolve, reject)=>{

@@ -198,6 +198,8 @@ movieController.personal_MisDatos_data = async (req, res)=>{
 
 movieController.getData = async (req, res) => {
     let nombrePropiedades,nombreFuncionGetData
+    const dataName = req.params.dataName
+    // Proceso para obtener los datos
     const getData = async (req) =>{
         let identificarUsuario = await funcionesController.identificarUsuario(req, 'authorization')
         let userKeys = await jwtController.desencriptarUser(req,'authorization')
@@ -218,8 +220,7 @@ movieController.getData = async (req, res) => {
         return getData_data
     }
 
-    const dataName = req.params.dataName
-
+    // Se establece que datos requerirá para solicitar
     switch (dataName) {
         case nombreCamposBdConfig.persona.NOMBRECOMPLETO:
             nombreFuncionGetData = 'getData_Persona' 
@@ -255,6 +256,73 @@ movieController.getData = async (req, res) => {
 }
 
 
+movieController.updateData = async (req, res) =>{
+    let nombrePropiedades,nombreFuncionUpdateData, errorRuta = false 
+    const dataName = req.params.dataName
+    // Proceso para obtener los datos
+    const updateData = async (req) =>{
+        let identificarUsuario = await funcionesController.identificarUsuario(req, 'authorization')
+        let userKeys = await jwtController.desencriptarUser(req,'authorization')
+        let correo = userKeys.data[nombreCamposBdConfig.persona.CORREO]
+        let contra = userKeys.data[nombreCamposBdConfig.persona.PASSWORD]
+        let updateData_data
+        // console.log(1,req.body)
+        
+        switch (nombreFuncionUpdateData){
+            case 'updateData_Persona':
+                 updateData_data = await movieModels.updateData_Persona(correo,contra,nombrePropiedades,req.body)
+                break;
+        
+            default:
+                console.log("debería de haber error");
+                break;
+        }
+
+        return updateData_data
+    }
+
+    // Se establece que datos requerirá para solicitar
+    switch (dataName) {
+        case `${nombreCamposBdConfig.persona.NAMETABLE}_${nombreCamposBdConfig.persona.NOMBRECOMPLETO}` :
+            nombreFuncionUpdateData = 'updateData_Persona' 
+            nombrePropiedades = nombreCamposBdConfig.persona.NOMBRECOMPLETO
+            console.log("hola 2");
+            errorRuta = true
+        break;
+        case `${nombreCamposBdConfig.persona.NAMETABLE}_${nombreCamposBdConfig.persona.NOMBREELEGIDO}`:
+            nombreFuncionUpdateData = 'updateData_Persona' 
+            nombrePropiedades = nombreCamposBdConfig.persona.NOMBREELEGIDO
+            console.log("hola");
+            errorRuta = false
+        
+        break;
+
+    
+        default:
+            errorRuta = true    
+                console.log("ajja");
+                // errorRequerimientos = true
+            break;
+    }
+
+
+
+    updateData(req)
+    .then((response)=>{
+        console.log(2223242);
+        console.log(response);
+        res.status(200)
+        
+    })
+    .catch((response)=>{
+        console.log(11123412);
+        console.log(response);
+        res.status(402)
+    })
+    
+
+
+}
 
 
 

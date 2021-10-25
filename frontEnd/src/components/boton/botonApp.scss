@@ -1,0 +1,36 @@
+.bottonApp{
+
+    &_sylesInitial{
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        border: none;
+        border-radius: 10px;
+
+    }
+
+    &_sizeBotton{
+
+        &_form{
+            min-width:50px;
+            min-height:30px;
+            max-width:100px;
+            max-height:35px;
+            width: 26vw;
+            height: 13vh;
+        }
+    }
+     
+    
+    &_typeBotton{
+        &_cancelar{
+            background-color :red;                    
+        }
+        
+        &_enviar{
+            background-color :green;                    
+            
+        }
+    }
+        
+}

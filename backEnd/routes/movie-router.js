@@ -11,6 +11,7 @@ router
 	//Personal 
 	.post('/personal/misdatos',movieController.personal_MisDatos_data)
 	.post('/getData/:dataName',movieController.getData)
+	.post('/updateData/:dataName',movieController.updateData)
 
 	.get('/casas',(req,res)=>{
 		res.json(objeto)

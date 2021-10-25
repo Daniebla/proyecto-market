@@ -3,11 +3,11 @@ import { Redirect, Route, useLocation } from "react-router"
 
 // Componentes
 import { ChangeDataApp } from "./ChangeData/ChangeDataApp"
+import { Contenedor2App } from "../../../../../contenedor2/Contenedor2App"
 
 
 // CONFIG
 import nombreCamposBdConfig from '../../../../../../../src/config/nombreCamposBdConfig.json'
-import { Contenedor2App } from "../../../../../contenedor2/Contenedor2App"
 import {nombreCompleto,nombreElegido } from './dataChangeConfig'
 
 
@@ -36,12 +36,12 @@ export const PersonalMisDatosChange = () =>{
             return <Redirect to={'/personal/misdatos'}/>
         }
 
-         return <Contenedor2App 
-                    title={propTitle} 
-                    children={
-                        <ChangeDataApp initialData ={initialData} dataName={dataName}/>
-                    }
-                />
+        return <Contenedor2App 
+                title={propTitle} 
+                children={
+                    <ChangeDataApp initialData ={initialData} dataName={dataName}/>
+                }
+            />
 
     }
 

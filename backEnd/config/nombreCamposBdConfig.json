@@ -1,5 +1,6 @@
 {
     "persona":{
+        "NAMETABLE":"persona",
         "ID":"id",
         "USUARIO":"usuario",
         "CORREO":"correo",
