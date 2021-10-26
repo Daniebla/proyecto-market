@@ -1,6 +1,7 @@
 import './changeDataApp.scss'
 // Librerías
 import React, { useState, useEffect} from 'react';
+import { useHistory, useLocation } from 'react-router';
 
 // Componentes
 import { BoxChangeData } from "../BoxChangeData/BoxChangeData";
@@ -17,9 +18,14 @@ import nombreCamposBdConfig from '../../../../../../../../src/config/nombreCampo
 export const ChangeDataApp = ( { initialData, dataName}) =>{
 
     const stylesButtonsDefault = ["bottonApp_sylesInitial bottonApp_sizeBotton_form bottonApp_typeBotton_cancelar", "bottonApp_sylesInitial bottonApp_sizeBotton_form bottonApp_typeBotton_enviar"]
-
+  
     const [stylesButtons] = useState(stylesButtonsDefault)
     const [form, setForm] = useState({})
+    const history = useHistory()
+    const location = useLocation()
+
+
+    let previousObjectUrl = location.state?.from
 
       const handleChange = (e) => { 
         setForm({ 
@@ -38,38 +44,59 @@ export const ChangeDataApp = ( { initialData, dataName}) =>{
     
 
       const handleCancelForm = () =>{
-        console.log("slaaldfjklsdjkfllaks")
+        history.push(previousObjectUrl || "/")
       }
 
 
       const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Formulario enviado")
-        updateData()
+
+        const handleSubmitPromise = async()=>{
+            let resUpdateData = await updateData()
+            
+            return resUpdateData
+        }
+
+        handleSubmitPromise()
+        .then(res=>{
+          console.log("Todo bien");
+          history.push(previousObjectUrl || "/")
+
+        })
+        .catch(res =>{
+          console.log("Todo mal")
+        })
       };
 
     const updateData = () =>{
 
-      let jwtUsuario = getUsuario()
-      let opcionEditar = `${nombreCamposBdConfig.persona.NAMETABLE[1]}_${dataName}`
+      return new Promise ((resolve,reject)=>{
+        
+        let jwtUsuario = getUsuario()
+        let opcionEditar = `${nombreCamposBdConfig.persona.NAMETABLE[1]}_${dataName}`
 
-      fetch(`http://localhost:3000/updateData/${opcionEditar}`,{
-        method:'post',
-        body:JSON.stringify(form),
-        headers:{
-          "content-type":"application/json",
-          "authorization":jwtUsuario
-        }
+        fetch(`http://localhost:3000/updateData/${opcionEditar}`,{
+          method:'post',
+          body:JSON.stringify(form),
+          headers:{
+            "content-type":"application/json",
+            "authorization":jwtUsuario
+          }
 
+        })
+        .then((res)=> res.ok ? Promise.resolve(res) : Promise.reject(res))
+        .then( res => res.json())
+        .then(res => {
+          console.log(res);
+          resolve()
+        })
+        
+        .catch(res => {
+          console.log(res)
+          reject()
+        })
       })
-      .then((res)=> res.ok ? Promise.resolve(res) : Promise.reject(res))
-      .then( res => res.json())
-      .then(res => {
-        console.log(res);
-        // setForm(res)
-      })
-      
-      .catch(res => console.log(res))
     }
 
       const getData = () => {
@@ -94,6 +121,8 @@ export const ChangeDataApp = ( { initialData, dataName}) =>{
     }
 
       useEffect(()=>{
+
+
         getData()
       },[])
 
@@ -102,6 +131,7 @@ export const ChangeDataApp = ( { initialData, dataName}) =>{
 
             <DebeCumplir initialData = {initialData.debeCumplir}/>
 
+            {/* Aquí se deben de renderizan todos los formulario necesarios */}
             {
               initialData.forms.length > 0 && 
                 initialData.forms.map((dataBox,index)=>

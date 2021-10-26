@@ -34,9 +34,6 @@ export const PersonalMisDatosApp = ({configForm}) =>{
           
         },[])
 
-      useEffect(()=>{
-        // console.log(form)
-      })
      
 
     return(
@@ -49,7 +46,7 @@ export const PersonalMisDatosApp = ({configForm}) =>{
                 key={index}
               />) 
               :  
-              <></>
+              null
             }
 
         </>
