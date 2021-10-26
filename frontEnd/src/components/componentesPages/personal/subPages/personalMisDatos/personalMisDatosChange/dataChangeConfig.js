@@ -37,4 +37,21 @@ export  let nombreElegido = {
         ]
     }
 
+export  let telefono = {
+        debeCumplir: [
+         "1 sdfsd sdfsf sadf sfsf as afsa"
+        ,"2 sdfsd sdfsf sadf sfsf as afsa"
+        ,"3 sdfsd sdfsf sadf sfsf as afsa"
+        ,"4 sdfsd sdfsf sadf sfsf as afsa"
+        ,"5 sdfsd sdfsf sadf sfsf as afsa"],
+        expresionRegular: "",
+        forms:[
+            {
+                isTextForm:true,    
+                title: CamposBdConfig.persona.TELEFONO[2],
+                name: CamposBdConfig.persona.TELEFONO[1]
+            }
+        ]
+    }
+
     

@@ -53,7 +53,7 @@ let movieModel = () => {}
 
 // Update data
 
-    movieModel.updateData_Persona = (correo, contra, nombrePropiedades, objectNuevoValor)=>{
+    movieModel.updateData_Persona = async (correo, contra, nombrePropiedades, objectNuevoValor)=>{
         return new Promise((resolve, reject)=>{
             movieConection.query( `UPDATE ${nombreCamposBdConfig.persona.NAMETABLE} SET ${nombrePropiedades} = "${objectNuevoValor[nombrePropiedades]}"  WHERE ${nombreCamposBdConfig.persona.CORREO} = ? and ${nombreCamposBdConfig.persona.PASSWORD} = ?`,[correo,contra],(err, user)=>{
                 if(err){

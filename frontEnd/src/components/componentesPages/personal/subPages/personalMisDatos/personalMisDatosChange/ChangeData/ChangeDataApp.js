@@ -44,19 +44,15 @@ export const ChangeDataApp = ( { initialData, dataName}) =>{
 
       const handleSubmit = (e) => {
         e.preventDefault();
-        // alert("El formulario se ha enviado");
         console.log("Formulario enviado")
         updateData()
-
-
-
       };
 
     const updateData = () =>{
 
       let jwtUsuario = getUsuario()
       let opcionEditar = `${nombreCamposBdConfig.persona.NAMETABLE[1]}_${dataName}`
-      console.log(opcionEditar)
+
       fetch(`http://localhost:3000/updateData/${opcionEditar}`,{
         method:'post',
         body:JSON.stringify(form),
@@ -70,7 +66,7 @@ export const ChangeDataApp = ( { initialData, dataName}) =>{
       .then( res => res.json())
       .then(res => {
         console.log(res);
-        setForm(res)
+        // setForm(res)
       })
       
       .catch(res => console.log(res))
@@ -99,7 +95,6 @@ export const ChangeDataApp = ( { initialData, dataName}) =>{
 
       useEffect(()=>{
         getData()
-        // refForm.current.submit()
       },[])
 
     return(
@@ -110,7 +105,7 @@ export const ChangeDataApp = ( { initialData, dataName}) =>{
             {
               initialData.forms.length > 0 && 
                 initialData.forms.map((dataBox,index)=>
-                  dataBox.isTextForm && <BoxChangeData form ={form} dataBox = {dataBox} handleChange={handleChange} key = {index} />    
+                  dataBox.isTextForm && <BoxChangeData form ={form} dataBox = {dataBox} handleChange={handleChange} key = {index} />  
 
                 )
             }

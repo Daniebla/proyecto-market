@@ -8,7 +8,7 @@ import { Contenedor2App } from "../../../../../contenedor2/Contenedor2App"
 
 // CONFIG
 import nombreCamposBdConfig from '../../../../../../../src/config/nombreCamposBdConfig.json'
-import {nombreCompleto,nombreElegido } from './dataChangeConfig'
+import {nombreCompleto,nombreElegido, telefono } from './dataChangeConfig'
 
 
 export const PersonalMisDatosChange = () =>{
@@ -31,6 +31,12 @@ export const PersonalMisDatosChange = () =>{
                 propTitle = "Editar: " + nombreCamposBdConfig.persona.NOMBRECOMPLETO[2]
                 initialData = nombreCompleto
             break                
+
+            case nombreCamposBdConfig.persona.TELEFONO[1]:
+                propTitle = "Editar: " + nombreCamposBdConfig.persona.TELEFONO[2]
+                initialData = telefono
+            break                
+
 
             default:
             return <Redirect to={'/personal/misdatos'}/>

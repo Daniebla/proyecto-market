@@ -1,4 +1,5 @@
 const { Console } = require('console')
+const { resolve } = require('path')
 let movieModels = require('../models/movie-models.js'),
     formidableController = require('../controllers/formidable-controller'),
     DirectoriosController = require('../controllers/directorios-controller'),
@@ -232,6 +233,11 @@ movieController.getData = async (req, res) => {
             nombrePropiedades = nombreCamposBdConfig.persona.NOMBREELEGIDO
             
             break;
+        case nombreCamposBdConfig.persona.TELEFONO:
+            nombreFuncionGetData = 'getData_Persona'    
+            nombrePropiedades = nombreCamposBdConfig.persona.TELEFONO
+            
+            break;
     
         default:
             res.status(404)
@@ -257,69 +263,87 @@ movieController.getData = async (req, res) => {
 
 
 movieController.updateData = async (req, res) =>{
-    let nombrePropiedades,nombreFuncionUpdateData, errorRuta = false 
     const dataName = req.params.dataName
+
     // Proceso para obtener los datos
     const updateData = async (req) =>{
         let identificarUsuario = await funcionesController.identificarUsuario(req, 'authorization')
         let userKeys = await jwtController.desencriptarUser(req,'authorization')
         let correo = userKeys.data[nombreCamposBdConfig.persona.CORREO]
         let contra = userKeys.data[nombreCamposBdConfig.persona.PASSWORD]
-        let updateData_data
-        // console.log(1,req.body)
+        let requisitos = await getRequisitos(dataName)
+        let updateData_data = await updateDataAction(requisitos,req,correo,contra)
         
-        switch (nombreFuncionUpdateData){
-            case 'updateData_Persona':
-                 updateData_data = await movieModels.updateData_Persona(correo,contra,nombrePropiedades,req.body)
-                break;
-        
-            default:
-                console.log("debería de haber error");
-                break;
-        }
 
         return updateData_data
     }
 
-    // Se establece que datos requerirá para solicitar
-    switch (dataName) {
-        case `${nombreCamposBdConfig.persona.NAMETABLE}_${nombreCamposBdConfig.persona.NOMBRECOMPLETO}` :
-            nombreFuncionUpdateData = 'updateData_Persona' 
-            nombrePropiedades = nombreCamposBdConfig.persona.NOMBRECOMPLETO
-            console.log("hola 2");
-            errorRuta = true
-        break;
-        case `${nombreCamposBdConfig.persona.NAMETABLE}_${nombreCamposBdConfig.persona.NOMBREELEGIDO}`:
-            nombreFuncionUpdateData = 'updateData_Persona' 
-            nombrePropiedades = nombreCamposBdConfig.persona.NOMBREELEGIDO
-            console.log("hola");
-            errorRuta = false
-        
-        break;
+    const getRequisitos =  (dataName) =>{
+        return new Promise((resolve, reject)=>{
+            let requisitos = {} 
 
-    
-        default:
-            errorRuta = true    
-                console.log("ajja");
-                // errorRequerimientos = true
-            break;
+            // Se establece que datos requerirá para solicitar
+            switch (dataName) {
+                case `${nombreCamposBdConfig.persona.NAMETABLE}_${nombreCamposBdConfig.persona.NOMBRECOMPLETO}` :
+                    requisitos.nombreFuncionUpdateData = 'updateData_Persona' 
+                    requisitos.nombrePropiedades = nombreCamposBdConfig.persona.NOMBRECOMPLETO
+                    resolve(requisitos)
+
+                    break;
+                case `${nombreCamposBdConfig.persona.NAMETABLE}_${nombreCamposBdConfig.persona.NOMBREELEGIDO}`:
+                    requisitos.nombreFuncionUpdateData = 'updateData_Persona' 
+                    requisitos.nombrePropiedades = nombreCamposBdConfig.persona.NOMBREELEGIDO
+                    resolve(requisitos)
+                
+                break;
+
+                case `${nombreCamposBdConfig.persona.NAMETABLE}_${nombreCamposBdConfig.persona.TELEFONO}`:
+                    requisitos.nombreFuncionUpdateData = 'updateData_Persona' 
+                    requisitos.nombrePropiedades = nombreCamposBdConfig.persona.TELEFONO
+                    resolve(requisitos)
+
+                break
+                default:
+                        reject({error: true, msg:"Ruta no encontrada"})
+                break;
+            }
+
+
+        })
+
     }
 
+   
+    const updateDataAction = async (requisitos,req,correo,contra) =>{
+        return new Promise((resolve,reject)=>{
+            let updateData_data
+            switch (requisitos.nombreFuncionUpdateData){
+                case 'updateData_Persona':
+                    updateData_data =  movieModels.updateData_Persona(correo,contra,requisitos.nombrePropiedades,req.body)
+                    resolve(updateData_data)
+                    break;
+            
+                default:
+                    console.log("debería dehaber error");
+                    reject({error: true, msg:"No coincide ruta función"})
+                    break;
+            }
+        })
+
+    }
 
 
     updateData(req)
     .then((response)=>{
-        console.log(2223242);
         console.log(response);
-        res.status(200)
+        res.json({msg:"diez de diez"})
         
     })
     .catch((response)=>{
         console.log(11123412);
         console.log(response);
-        res.status(402)
+        res.sendStatus(402)
     })
-    
 
 
 }
