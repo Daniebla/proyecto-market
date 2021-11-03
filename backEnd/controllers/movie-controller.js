@@ -198,7 +198,7 @@ movieController.personal_MisDatos_data = async (req, res)=>{
 }
 
 movieController.getData = async (req, res) => {
-    let nombrePropiedades,nombreFuncionGetData
+    // let nombrePropiedades,nombreFuncionGetData
     const dataName = req.params.dataName
     // Proceso para obtener los datos
     const getData = async (req) =>{
@@ -206,44 +206,82 @@ movieController.getData = async (req, res) => {
         let userKeys = await jwtController.desencriptarUser(req,'authorization')
         let correo = userKeys.data[nombreCamposBdConfig.persona.CORREO]
         let contra = userKeys.data[nombreCamposBdConfig.persona.PASSWORD]
-        let getData_data
+        let requisitos = await getRequisitos(dataName)
+        let getData_data = await getDataAction(requisitos,correo,contra)
 
-        switch (nombreFuncionGetData) {
-            case 'getData_Persona':
-                 getData_data = movieModels['getData_Persona'](correo,contra,nombrePropiedades)
-                break;
+
         
-            default:
-                console.log("debería de haber error");
-                break;
-        }
-
         return getData_data
     }
-
-    // Se establece que datos requerirá para solicitar
-    switch (dataName) {
-        case nombreCamposBdConfig.persona.NOMBRECOMPLETO:
-            nombreFuncionGetData = 'getData_Persona' 
-            nombrePropiedades = nombreCamposBdConfig.persona.NOMBRECOMPLETO
-
-            break;
-        case nombreCamposBdConfig.persona.NOMBREELEGIDO:
-            nombreFuncionGetData = 'getData_Persona'    
-            nombrePropiedades = nombreCamposBdConfig.persona.NOMBREELEGIDO
-            
-            break;
-        case nombreCamposBdConfig.persona.TELEFONO:
-            nombreFuncionGetData = 'getData_Persona'    
-            nombrePropiedades = nombreCamposBdConfig.persona.TELEFONO
-            
-            break;
     
-        default:
-            res.status(404)
-            res.json({error:"Campo no espicificado" })
-            break;
+    const getDataAction = async (requisitos,correo,contra) =>{
+        return new Promise((resolve,reject)=>{
+            let updateData_data
+    
+            switch (requisitos.nombreFuncionGetData) {
+                case 'getData_Persona':
+                     getData_data = movieModels.getData_Persona(correo,contra,requisitos.nombrePropiedades)
+                     resolve(getData_data)
+                break;
+            
+                default:
+                    console.log("debería de haber error");
+                    reject({error: true, msg:"No coincide ruta función getDasta"})
+
+                break;
+            }
+    
+    
+        })
     }
+
+    const getRequisitos = ()=>{
+        return new Promise((resolve, reject)=>{
+            let requisitos = {} 
+
+            // Se establece que datos requerirá para solicitar
+            switch (dataName) {
+                case `${nombreCamposBdConfig.persona.NAMETABLE}_${nombreCamposBdConfig.persona.NOMBRECOMPLETO}`:
+                    requisitos.nombreFuncionGetData = 'getData_Persona' 
+                    requisitos.nombrePropiedades = nombreCamposBdConfig.persona.NOMBRECOMPLETO
+                    resolve(requisitos)
+
+                break;
+                case `${nombreCamposBdConfig.persona.NAMETABLE}_${nombreCamposBdConfig.persona.NOMBREELEGIDO}`:
+                    requisitos.nombreFuncionGetData = 'getData_Persona'    
+                    requisitos.nombrePropiedades = nombreCamposBdConfig.persona.NOMBREELEGIDO
+                    resolve(requisitos)
+
+                break;
+                case `${nombreCamposBdConfig.persona.NAMETABLE}_${nombreCamposBdConfig.persona.TELEFONO}`:
+                    
+                    requisitos.nombreFuncionGetData = 'getData_Persona'    
+                    requisitos.nombrePropiedades = nombreCamposBdConfig.persona.TELEFONO
+                    resolve(requisitos)
+
+                break;
+                case `${nombreCamposBdConfig.persona.NAMETABLE}_${nombreCamposBdConfig.persona.USUARIO}`:
+                    requisitos.nombreFuncionGetData = 'getData_Persona' 
+                    requisitos.nombrePropiedades = nombreCamposBdConfig.persona.USUARIO
+                    resolve(requisitos)
+                break
+
+                case `${nombreCamposBdConfig.persona.NAMETABLE}_${nombreCamposBdConfig.persona.CORREO}`:
+                    requisitos.nombreFuncionGetData = 'getData_Persona' 
+                    requisitos.nombrePropiedades = nombreCamposBdConfig.persona.CORREO
+                    resolve(requisitos)
+                break
+
+
+                
+                default:
+                    console.log("Ruta no encontrada msg  plano get data ");
+                    reject({error: true, msg:"Ruta no encontrada para getData"})
+                    break;
+            }
+        })
+    }
+
 
     getData(req)
     .then((response)=>{
@@ -303,7 +341,22 @@ movieController.updateData = async (req, res) =>{
                     resolve(requisitos)
 
                 break
+
+                case `${nombreCamposBdConfig.persona.NAMETABLE}_${nombreCamposBdConfig.persona.USUARIO}`:
+                    requisitos.nombreFuncionUpdateData = 'updateData_Persona' 
+                    requisitos.nombrePropiedades = nombreCamposBdConfig.persona.USUARIO
+                    resolve(requisitos)
+
+                break
+
+                case `${nombreCamposBdConfig.persona.NAMETABLE}_${nombreCamposBdConfig.persona.CORREO}`:
+                    requisitos.nombreFuncionUpdateData = 'updateData_Persona' 
+                    requisitos.nombrePropiedades = nombreCamposBdConfig.persona.CORREO
+                    resolve(requisitos)
+                                
+                break
                 default:
+                        console.log("Ruta no encontrada msg plano");
                         reject({error: true, msg:"Ruta no encontrada"})
                 break;
             }

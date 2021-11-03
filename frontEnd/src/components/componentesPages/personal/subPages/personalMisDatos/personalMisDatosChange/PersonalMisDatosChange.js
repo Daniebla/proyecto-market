@@ -8,7 +8,7 @@ import { Contenedor2App } from "../../../../../contenedor2/Contenedor2App"
 
 // CONFIG
 import nombreCamposBdConfig from '../../../../../../../src/config/nombreCamposBdConfig.json'
-import {nombreCompleto,nombreElegido, telefono } from './dataChangeConfig'
+import {nombreCompleto,nombreElegido, telefono, usuario, correo } from './dataChangeConfig'
 
 
 export const PersonalMisDatosChange = () =>{
@@ -36,6 +36,18 @@ export const PersonalMisDatosChange = () =>{
                 propTitle = "Editar: " + nombreCamposBdConfig.persona.TELEFONO[2]
                 initialData = telefono
             break                
+
+
+            case nombreCamposBdConfig.persona.USUARIO[1]:
+                propTitle = "Editar: " + nombreCamposBdConfig.persona.USUARIO[2]
+                initialData = usuario
+            break
+
+            case nombreCamposBdConfig.persona.CORREO[1]:
+                propTitle = "Editar: " + nombreCamposBdConfig.persona.CORREO[2]
+                initialData = correo
+            break
+
 
 
             default:

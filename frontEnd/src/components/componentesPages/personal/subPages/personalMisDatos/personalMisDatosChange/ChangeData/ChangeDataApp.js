@@ -6,10 +6,11 @@ import { useHistory, useLocation } from 'react-router';
 // Componentes
 import { BoxChangeData } from "../BoxChangeData/BoxChangeData";
 import { DebeCumplir } from "../../../../../../debeCumplir/DebeCumplirApp"
+import { BotonApp } from '../../../../../../boton/BotonApp';
 
 // Helper
 import { getUsuario } from '../../../../../../../helpers/isLogin';
-import { BotonApp } from '../../../../../../boton/BotonApp';
+import { validateRegex } from '../../../../../../../helpers/validateRegex';
 
 // Config
 import nombreCamposBdConfig from '../../../../../../../../src/config/nombreCamposBdConfig.json'
@@ -74,9 +75,9 @@ export const ChangeDataApp = ( { initialData, dataName}) =>{
       return new Promise ((resolve,reject)=>{
         
         let jwtUsuario = getUsuario()
-        let opcionEditar = `${nombreCamposBdConfig.persona.NAMETABLE[1]}_${dataName}`
+        let parametroClave = `${nombreCamposBdConfig.persona.NAMETABLE[1]}_${dataName}`
 
-        fetch(`http://localhost:3000/updateData/${opcionEditar}`,{
+        fetch(`http://localhost:3000/updateData/${parametroClave}`,{
           method:'post',
           body:JSON.stringify(form),
           headers:{
@@ -101,8 +102,9 @@ export const ChangeDataApp = ( { initialData, dataName}) =>{
 
       const getData = () => {
           let jwtUsuario = getUsuario()
-        
-          fetch(`http://localhost:3000/getData/${dataName}`,{
+          let parametroClave = `${nombreCamposBdConfig.persona.NAMETABLE[1]}_${dataName}`
+
+          fetch(`http://localhost:3000/getData/${parametroClave}`,{
             method:'post',
             headers:{
               "content-type":"application/json",
@@ -135,16 +137,16 @@ export const ChangeDataApp = ( { initialData, dataName}) =>{
             {
               initialData.forms.length > 0 && 
                 initialData.forms.map((dataBox,index)=>
-                  dataBox.isTextForm && <BoxChangeData form ={form} dataBox = {dataBox} handleChange={handleChange} key = {index} />  
+                  dataBox.isTextForm && <BoxChangeData form ={form} dataBox = {dataBox} handleChange={handleChange}  key = {index} />  
 
                 )
             }
 
             <div className="changeDataApp_ContenedorButtons">
+              <BotonApp textBotton="Enviar"  typeInput = "submit" clases={stylesButtons[1]}/>
               <BotonApp textBotton="Cancelar"  typeInput = "button" clases={stylesButtons[0]} 
               handleClick={handleCancelForm}
               />
-              <BotonApp textBotton="Enviar"  typeInput = "submit" clases={stylesButtons[1]}/>
             </div>
 
         </form>
